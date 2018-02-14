@@ -12,19 +12,6 @@ class CalculatorViewController: UIViewController {
 
     @IBOutlet weak var calculatorScrollView: UIScrollView!
     
-    var exchangeRate: Int = 0
-    var petrolDuty: Int = 0
-    var dieselDuty: Int = 0
-    var ecologicalRate: Int = 0
-    var vat: Int = 0
-    var railwayRate: Int = 0
-    var autoRate: Int = 0
-    var elnurRate: Int = 0
-    var density80: Int = 0
-    var density92: Int = 0
-    var density95: Int = 0
-    var densityDT: Int = 0
-    
     @objc func keyboardWasShown(notification: Notification) {
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
@@ -69,6 +56,5 @@ class CalculatorViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
