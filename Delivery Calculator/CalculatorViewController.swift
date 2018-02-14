@@ -49,9 +49,6 @@ class CalculatorViewController: UIViewController {
         
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         calculatorScrollView?.addGestureRecognizer(hideKeyboardGesture)
-        
-//        let settingsVC = controlle
-//        self.exchangeRate = Int(settingsVC.exchangeRate.text!)!
     }
     
     override func viewWillAppear(_ animated: Bool) {
