@@ -6,17 +6,15 @@
 //  Copyright © 2018 PetrovectorGroup. All rights reserved.
 //
 
-import Foundation
-
-class Object: Decodable {
+struct Object: Decodable {
     var Date: String = ""
     var PreviousDate: String = ""
     var PreviousURL: String = ""
     var Timestamp: String = ""
-    var Valute: [Valute]
+    var Valute: [String: ValuteAnswer]
 }
 
-class Valute: Decodable {
+struct ValuteAnswer: Decodable {
     var ID: String = ""
     var NumCode: String = ""
     var CharCode: String = ""

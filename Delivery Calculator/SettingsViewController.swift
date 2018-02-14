@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    var dataModel: Model = Model(exchangeRate: 65.5)
+    var dataModel: Model = Model()
 
     @IBOutlet weak var settingsScrollView: UIScrollView!
     @IBOutlet weak var exchangeRate: UILabel!

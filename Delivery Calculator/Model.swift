@@ -9,6 +9,7 @@
 import Foundation
 
 class Model: NSObject {
+    
     var exchangeRate: Double? = nil
     var petrolDuty: Double? = nil
     var dieselDuty: Double? = nil
@@ -24,11 +25,7 @@ class Model: NSObject {
     
     override init() {
         super.init()
-    }
-    
-    convenience init(exchangeRate: Double?) {
-        self.init()
-        self.exchangeRate = exchangeRate
+        self.exchangeRate = self.getExchangeRate()
         self.petrolDuty = 5000
         self.dieselDuty = 400
         self.ecologicalRate = 95
@@ -40,5 +37,19 @@ class Model: NSObject {
         self.density92 = 0.735
         self.density95 = 0.733
         self.densityDT = 0.855
+    }
+    
+    func getExchangeRate() -> Double? {
+        let queryService: QueryService = QueryService()
+        var rate: Double? = nil
+        queryService.getExchangeRates(completion: { (result, errorMessage) in
+            if let result = result {
+                rate = result.Value
+            }
+            if !errorMessage.isEmpty {
+                print(errorMessage)
+            }
+        })
+        return rate
     }
 }

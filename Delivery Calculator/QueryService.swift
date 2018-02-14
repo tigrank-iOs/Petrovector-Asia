@@ -9,9 +9,9 @@
 import Foundation
 
 class QueryService {
-    typealias ExchangeRateResult = (Valute?, String) -> ()
+    typealias ExchangeRateResult = (ValuteAnswer?, String) -> ()
     
-    var rate: Valute? = nil
+    var valuteKGS: ValuteAnswer? = nil
     var errorMessage = ""
     
     let defaultSession = URLSession(configuration: .default)
@@ -31,7 +31,7 @@ class QueryService {
                 let response = response as? HTTPURLResponse,
                 response.statusCode == 200 {
                 self.downloadRate(data)
-                completion(self.rate, self.errorMessage)
+                completion(self.valuteKGS, self.errorMessage)
             }
         }
         dataTask?.resume()
@@ -39,7 +39,7 @@ class QueryService {
     
     fileprivate func downloadRate(_ data: Data) {
         var response: Object?
-        rate = nil
+        valuteKGS = nil
         
         do {
             response = try JSONDecoder().decode(Object.self, from: data)
@@ -47,14 +47,10 @@ class QueryService {
             errorMessage += "JSONDecoder error: " + error.localizedDescription + "/n"
             return
         }
-        guard let array = response?.Valute else {
+        guard let array = response?.Valute["KGS"] else {
             errorMessage += "Dictionary does not contain results key/n"
             return
         }
-        for i in array {
-            if i.CharCode == "KGS" {
-                rate = i
-            }
-        }
+        valuteKGS = array
     }
 }
