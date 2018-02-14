@@ -9,7 +9,7 @@
 import UIKit
 
 class CalculatorViewController: UIViewController {
-    var dataModel: Model = Model(exchangeRate: 65.5)
+    var dataModel: Model? = nil
 
     @IBOutlet weak var calculatorScrollView: UIScrollView!
     
@@ -37,25 +37,21 @@ class CalculatorViewController: UIViewController {
         
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         calculatorScrollView?.addGestureRecognizer(hideKeyboardGesture)
-        
-        let tabBar = self.tabBarController?.viewControllers
-        let settingVC = tabBar![1] as! SettingsViewController
-        settingVC.dataModel = self.dataModel
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tabBar = self.tabBarController?.viewControllers
+        let settingVC = tabBar![1] as! SettingsViewController
+        self.dataModel = settingVC.dataModel
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
