@@ -9,6 +9,7 @@
 import UIKit
 
 class CalculatorViewController: UIViewController {
+    var dataModel: Model = Model(exchangeRate: 65.5)
 
     @IBOutlet weak var calculatorScrollView: UIScrollView!
     
@@ -36,6 +37,10 @@ class CalculatorViewController: UIViewController {
         
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         calculatorScrollView?.addGestureRecognizer(hideKeyboardGesture)
+        
+        let tabBar = self.tabBarController?.viewControllers
+        let settingVC = tabBar![1] as! SettingsViewController
+        settingVC.dataModel = self.dataModel
     }
     
     override func viewWillAppear(_ animated: Bool) {

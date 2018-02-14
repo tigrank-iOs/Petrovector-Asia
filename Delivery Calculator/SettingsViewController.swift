@@ -9,6 +9,8 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    var dataModel: Model? = nil
 
     @IBOutlet weak var settingsScrollView: UIScrollView!
     @IBOutlet weak var exchangeRate: UILabel!
@@ -51,33 +53,32 @@ class SettingsViewController: UIViewController {
         
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         settingsScrollView?.addGestureRecognizer(hideKeyboardGesture)
-        
-        petrolDuty.text = "5000"
-        dieselDuty.text = "400"
-        ecologicalRate.text = "95"
-        vat.text = "12"
-        railwayRate.text = "13.5"
-        autoRate.text = "1000"
-        elnurRate.text = "4500"
-        density80.text = "0.715"
-        density92.text = "0.735"
-        density95.text = "0.733"
-        densityDT.text = "0.855"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        if let dataModel = dataModel {
+            exchangeRate.text = "\(dataModel.exchangeRate!) KGS"
+            petrolDuty.text = "\(dataModel.petrolDuty!)"
+            dieselDuty.text = "\(dataModel.dieselDuty!)"
+            ecologicalRate.text = "\(dataModel.ecologicalRate!)"
+            vat.text = "\(dataModel.vat!)"
+            railwayRate.text = "\(dataModel.railwayRate!)"
+            autoRate.text = "\(dataModel.autoRate!)"
+            elnurRate.text = "\(dataModel.elnurRate!)"
+            density80.text = "\(dataModel.density80!)"
+            density92.text = "\(dataModel.density92!)"
+            density95.text = "\(dataModel.density95!)"
+            densityDT.text = "\(dataModel.densityDT!)"
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
