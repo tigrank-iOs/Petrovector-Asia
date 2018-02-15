@@ -36,13 +36,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пожалуйста, введите стоимость товара на границе в USD" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3X-ev-4yd">
-                                        <rect key="frame" x="50" y="30" width="275" height="20.5"/>
+                                        <rect key="frame" x="50" y="30" width="275" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pgb-Q7-5pB">
-                                        <rect key="frame" x="138" y="70.5" width="100" height="30"/>
+                                        <rect key="frame" x="138" y="71" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="vtk-tO-W7O"/>
                                         </constraints>
@@ -50,40 +50,49 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDd-AS-7Bg">
+                                        <rect key="frame" x="50" y="347" width="275" height="30"/>
+                                        <state key="normal" title="Рассчитать"/>
+                                        <connections>
+                                            <action selector="baseCalculationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5XP-GF-sDJ"/>
+                                        </connections>
+                                    </button>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsT-wd-KhZ">
+                                        <rect key="frame" x="50" y="116" width="275" height="216"/>
+                                    </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFo-pr-FET">
-                                        <rect key="frame" x="60" y="210.5" width="255" height="200"/>
+                                        <rect key="frame" x="166.5" y="392" width="42" height="180"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="2Px-vv-yFM"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="gEH-a9-YcB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDd-AS-7Bg">
-                                        <rect key="frame" x="143" y="140.5" width="90" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="90" id="Boi-u7-gVf"/>
-                                        </constraints>
-                                        <state key="normal" title="Рассчитать"/>
-                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GDd-AS-7Bg" secondAttribute="trailing" constant="50" id="09D-Qb-Tpz"/>
+                                    <constraint firstItem="PFo-pr-FET" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fwt-Rh-PYc" secondAttribute="trailing" constant="60" id="4vS-cB-XX2"/>
+                                    <constraint firstItem="PFo-pr-FET" firstAttribute="top" secondItem="GDd-AS-7Bg" secondAttribute="bottom" constant="15" id="53D-3G-eWb"/>
                                     <constraint firstAttribute="trailing" secondItem="pvP-Ff-wwc" secondAttribute="trailing" id="8mB-kS-2pg"/>
+                                    <constraint firstAttribute="trailing" secondItem="LsT-wd-KhZ" secondAttribute="trailing" constant="50" id="ENW-Ge-hJK"/>
+                                    <constraint firstItem="PFo-pr-FET" firstAttribute="centerX" secondItem="olf-Kp-wOK" secondAttribute="centerX" id="EYm-CO-YLS"/>
+                                    <constraint firstItem="GDd-AS-7Bg" firstAttribute="leading" secondItem="fwt-Rh-PYc" secondAttribute="trailing" constant="50" id="Gaa-Lq-4od"/>
                                     <constraint firstItem="GDd-AS-7Bg" firstAttribute="centerX" secondItem="olf-Kp-wOK" secondAttribute="centerX" id="K2T-4J-LLM"/>
                                     <constraint firstItem="fwt-Rh-PYc" firstAttribute="leading" secondItem="olf-Kp-wOK" secondAttribute="leading" id="L8P-il-WBk"/>
-                                    <constraint firstAttribute="trailing" secondItem="PFo-pr-FET" secondAttribute="trailing" constant="60" id="Mwa-dq-s2q"/>
                                     <constraint firstAttribute="bottom" secondItem="fwt-Rh-PYc" secondAttribute="bottom" id="Q3r-OB-uVU"/>
                                     <constraint firstItem="C3X-ev-4yd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fwt-Rh-PYc" secondAttribute="trailing" constant="50" id="Qnd-Xu-a0q"/>
                                     <constraint firstItem="pgb-Q7-5pB" firstAttribute="centerX" secondItem="olf-Kp-wOK" secondAttribute="centerX" id="TRd-gz-MbL"/>
                                     <constraint firstItem="C3X-ev-4yd" firstAttribute="top" secondItem="pvP-Ff-wwc" secondAttribute="bottom" constant="30" id="WpP-YQ-g2t"/>
-                                    <constraint firstItem="PFo-pr-FET" firstAttribute="leading" secondItem="fwt-Rh-PYc" secondAttribute="trailing" constant="60" id="b49-qh-McW"/>
+                                    <constraint firstItem="LsT-wd-KhZ" firstAttribute="leading" secondItem="fwt-Rh-PYc" secondAttribute="trailing" constant="50" id="XMc-uD-b6S"/>
                                     <constraint firstItem="pvP-Ff-wwc" firstAttribute="leading" secondItem="olf-Kp-wOK" secondAttribute="leading" id="eG9-zW-MLr"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="C3X-ev-4yd" secondAttribute="trailing" constant="50" id="eJg-X1-6RO"/>
                                     <constraint firstItem="C3X-ev-4yd" firstAttribute="centerX" secondItem="olf-Kp-wOK" secondAttribute="centerX" id="exq-OF-vnb"/>
-                                    <constraint firstItem="GDd-AS-7Bg" firstAttribute="top" secondItem="pgb-Q7-5pB" secondAttribute="bottom" constant="40" id="lgw-il-T3o"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PFo-pr-FET" secondAttribute="trailing" constant="60" id="gOM-c9-M5P"/>
                                     <constraint firstItem="pgb-Q7-5pB" firstAttribute="top" secondItem="C3X-ev-4yd" secondAttribute="bottom" constant="20" id="mpf-XW-mEQ"/>
+                                    <constraint firstItem="GDd-AS-7Bg" firstAttribute="top" secondItem="LsT-wd-KhZ" secondAttribute="bottom" constant="15" id="nfM-wQ-i1I"/>
                                     <constraint firstItem="pvP-Ff-wwc" firstAttribute="top" secondItem="olf-Kp-wOK" secondAttribute="top" id="oDa-T7-1Ig"/>
-                                    <constraint firstItem="PFo-pr-FET" firstAttribute="top" secondItem="GDd-AS-7Bg" secondAttribute="bottom" constant="40" id="qnQ-KK-UIv"/>
+                                    <constraint firstItem="LsT-wd-KhZ" firstAttribute="top" secondItem="pgb-Q7-5pB" secondAttribute="bottom" constant="15" id="uni-EA-iVE"/>
                                     <constraint firstItem="fwt-Rh-PYc" firstAttribute="top" secondItem="pvP-Ff-wwc" secondAttribute="bottom" id="z2C-YF-WV5"/>
                                 </constraints>
                             </scrollView>
@@ -101,7 +110,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Расчет стоимости на НБ" id="Geg-ih-ilz"/>
                     <connections>
+                        <outlet property="baseResults" destination="PFo-pr-FET" id="3ea-1Q-wTz"/>
+                        <outlet property="borderPrice" destination="pgb-Q7-5pB" id="6yA-vW-e34"/>
                         <outlet property="calculatorScrollView" destination="olf-Kp-wOK" id="IGb-qu-f5x"/>
+                        <outlet property="petrolPicker" destination="LsT-wd-KhZ" id="H3k-CV-NZ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
