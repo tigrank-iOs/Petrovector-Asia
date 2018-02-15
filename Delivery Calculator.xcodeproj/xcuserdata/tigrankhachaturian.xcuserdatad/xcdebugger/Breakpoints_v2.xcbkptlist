@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Delivery Calculator/SettingsViewController.swift"
-            timestampString = "540370246.653288"
+            timestampString = "540381982.013203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -26,60 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Delivery Calculator/SettingsViewController.swift"
-            timestampString = "540370246.653609"
+            timestampString = "540381982.013822"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Delivery_Calculator.SettingsViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "Delivery Calculator"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tigrankhachaturian/Desktop/Delivery%20Calculator/Delivery%20Calculator/SettingsViewController.swift"
-                  timestampString = "540370470.677793"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "287">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Delivery_Calculator.ValuteAnswer&gt;, Swift.String) -&gt; () in Delivery_Calculator.SettingsViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "Delivery Calculator"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tigrankhachaturian/Desktop/Delivery%20Calculator/Delivery%20Calculator/SettingsViewController.swift"
-                  timestampString = "540370470.679956"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "292">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Delivery Calculator/SettingsViewController.swift"
-            timestampString = "540370246.653674"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "downloadRate()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Delivery Calculator/SettingsViewController.swift"
-            timestampString = "540370246.653724"
+            timestampString = "540381982.014065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "downloadRate()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,11 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Delivery Calculator/SettingsViewController.swift"
-            timestampString = "540370246.653766"
+            timestampString = "540381982.014292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104">
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "downloadRate()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -120,25 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Delivery Calculator/SettingsViewController.swift"
-            timestampString = "540370246.653816"
+            timestampString = "540381982.014508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Delivery Calculator/SettingsViewController.swift"
-            timestampString = "540370246.653875"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106">
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "urlSession(_:dataTask:didReceive:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,9 +8,11 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, URLSessionDataDelegate {
     
-    var dataModel: Model = Model()
+    var dataModel: Model? = nil
+    var queryService: QueryService = QueryService()
+    var rate: Double? = nil
 
     @IBOutlet weak var settingsScrollView: UIScrollView!
     @IBOutlet weak var exchangeRate: UILabel!
@@ -51,6 +53,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.downloadRate()
+        
+        
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         settingsScrollView?.addGestureRecognizer(hideKeyboardGesture)
     }
@@ -59,19 +64,6 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        exchangeRate.text = "\(dataModel.exchangeRate!) KGS"
-        petrolDuty.text = "\(dataModel.petrolDuty!)"
-        dieselDuty.text = "\(dataModel.dieselDuty!)"
-        ecologicalRate.text = "\(dataModel.ecologicalRate!)"
-        vat.text = "\(dataModel.vat!)"
-        railwayRate.text = "\(dataModel.railwayRate!)"
-        autoRate.text = "\(dataModel.autoRate!)"
-        elnurRate.text = "\(dataModel.elnurRate!)"
-        density80.text = "\(dataModel.density80!)"
-        density92.text = "\(dataModel.density92!)"
-        density95.text = "\(dataModel.density95!)"
-        densityDT.text = "\(dataModel.densityDT!)"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -83,5 +75,41 @@ class SettingsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
+    func downloadRate() {
+        let url = URL(string: "https://www.cbr-xml-daily.ru/daily_json.js")
+        let defaultSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
+        let dataTask = defaultSession.dataTask(with: url!)
+        dataTask.resume()
+        
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        var response: Object?
+        do {
+            response = try JSONDecoder().decode(Object.self, from: data)
+        } catch let error {
+            print("JSONDecoder error: " + error.localizedDescription + "/n")
+            return
+        }
+        guard let array = response?.Valute["KGS"] else {
+            print("Dictionary does not contain results key/n") 
+            return
+        }
+        self.dataModel = Model(exchangeRate: array.Value)
+        DispatchQueue.main.sync {
+            exchangeRate.text = "\(dataModel!.exchangeRate!) KGS"
+            petrolDuty.text = "\(dataModel!.petrolDuty!)"
+            dieselDuty.text = "\(dataModel!.dieselDuty!)"
+            ecologicalRate.text = "\(dataModel!.ecologicalRate!)"
+            vat.text = "\(dataModel!.vat!)"
+            railwayRate.text = "\(dataModel!.railwayRate!)"
+            autoRate.text = "\(dataModel!.autoRate!)"
+            elnurRate.text = "\(dataModel!.elnurRate!)"
+            density80.text = "\(dataModel!.density80!)"
+            density92.text = "\(dataModel!.density92!)"
+            density95.text = "\(dataModel!.density95!)"
+            densityDT.text = "\(dataModel!.densityDT!)"
+        }
+    }
 }

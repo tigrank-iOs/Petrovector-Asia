@@ -25,7 +25,11 @@ class Model: NSObject {
     
     override init() {
         super.init()
-        self.exchangeRate = self.getExchangeRate()
+    }
+    
+    convenience init(exchangeRate: Double?) {
+        self.init()
+        self.exchangeRate = exchangeRate
         self.petrolDuty = 5000
         self.dieselDuty = 400
         self.ecologicalRate = 95
@@ -39,17 +43,17 @@ class Model: NSObject {
         self.densityDT = 0.855
     }
     
-    func getExchangeRate() -> Double? {
-        let queryService: QueryService = QueryService()
-        var rate: Double? = nil
-        queryService.getExchangeRates(completion: { (result, errorMessage) in
-            if let result = result {
-                rate = result.Value
-            }
-            if !errorMessage.isEmpty {
-                print(errorMessage)
-            }
-        })
-        return rate
-    }
+//    func getExchangeRate() -> Double? {
+//        let queryService: QueryService = QueryService()
+//        var rate: Double? = nil
+//        queryService.getExchangeRates(completion: { (result, errorMessage) in
+//            if let result = result {
+//                rate = result.Value
+//            }
+//            if !errorMessage.isEmpty {
+//                print(errorMessage)
+//            }
+//        })
+//        return rate
+//    }
 }

@@ -8,6 +8,4 @@
 
 import Foundation
 
-protocol QueryServiceDelegate: class {
-    func didFinishDownloadingRates(sender: QueryService)
-}
+
