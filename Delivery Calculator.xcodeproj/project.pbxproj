@@ -10,6 +10,7 @@
 		C2B6871920345F50000D5CAB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6871820345F50000D5CAB /* Model.swift */; };
 		C2B6871B203470AF000D5CAB /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6871A203470AF000D5CAB /* QueryService.swift */; };
 		C2B6871D20347200000D5CAB /* DecodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6871C20347200000D5CAB /* DecodableModel.swift */; };
+		C2B68721203567B5000D5CAB /* QueryServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B68720203567B5000D5CAB /* QueryServiceDelegate.swift */; };
 		C2B84D862021D3F800ACEF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D852021D3F800ACEF13 /* AppDelegate.swift */; };
 		C2B84D8B2021D3F800ACEF13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D892021D3F800ACEF13 /* Main.storyboard */; };
 		C2B84D8D2021D3F800ACEF13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D8C2021D3F800ACEF13 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		C2B6871820345F50000D5CAB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C2B6871A203470AF000D5CAB /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 		C2B6871C20347200000D5CAB /* DecodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableModel.swift; sourceTree = "<group>"; };
+		C2B68720203567B5000D5CAB /* QueryServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryServiceDelegate.swift; sourceTree = "<group>"; };
 		C2B84D822021D3F800ACEF13 /* Delivery Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Delivery Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B84D852021D3F800ACEF13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2B84D8A2021D3F800ACEF13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		C2B84D842021D3F800ACEF13 /* Delivery Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				C2B68720203567B5000D5CAB /* QueryServiceDelegate.swift */,
 				C2B84D852021D3F800ACEF13 /* AppDelegate.swift */,
 				C2B6871A203470AF000D5CAB /* QueryService.swift */,
 				C2B6871C20347200000D5CAB /* DecodableModel.swift */,
@@ -154,6 +157,7 @@
 				C2B6871B203470AF000D5CAB /* QueryService.swift in Sources */,
 				C2B84D9A2021D4B500ACEF13 /* SettingsViewController.swift in Sources */,
 				C2B6871920345F50000D5CAB /* Model.swift in Sources */,
+				C2B68721203567B5000D5CAB /* QueryServiceDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
