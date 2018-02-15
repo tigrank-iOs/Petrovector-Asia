@@ -42,18 +42,4 @@ class Model: NSObject {
         self.density95 = 0.733
         self.densityDT = 0.855
     }
-    
-//    func getExchangeRate() -> Double? {
-//        let queryService: QueryService = QueryService()
-//        var rate: Double? = nil
-//        queryService.getExchangeRates(completion: { (result, errorMessage) in
-//            if let result = result {
-//                rate = result.Value
-//            }
-//            if !errorMessage.isEmpty {
-//                print(errorMessage)
-//            }
-//        })
-//        return rate
-//    }
 }
