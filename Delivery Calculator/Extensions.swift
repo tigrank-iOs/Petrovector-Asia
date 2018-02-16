@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension BaseCalculatorVC: UIPickerViewDataSource, UIPickerViewDelegate {
+extension CalculatorVC: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -35,14 +35,18 @@ extension BaseCalculatorVC: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 }
 
-extension BaseCalculatorVC: UITextFieldDelegate {
+extension CalculatorVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard textField == borderPrice else {
+            self.borderCalculationButton(self)
+            return true
+        }
         self.baseCalculationButton(self)
         return true
     }
 }
 
-extension BaseCalculatorVC: URLSessionDataDelegate {
+extension CalculatorVC: URLSessionDataDelegate {
     func downloadRate() {
         let url = URL(string: "https://www.cbr-xml-daily.ru/daily_json.js")
         let defaultSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
@@ -52,7 +56,6 @@ extension BaseCalculatorVC: URLSessionDataDelegate {
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         var response: Object?
-        var rate: Double? = nil
         do {
             response = try JSONDecoder().decode(Object.self, from: data)
         } catch let error {
@@ -64,14 +67,7 @@ extension BaseCalculatorVC: URLSessionDataDelegate {
                 print("Dictionary does not contain results key/n")
                 return
         }
-        rate = Double(Int((usd.Value / (kgs.Value/Double(kgs.Nominal))) * 10000)) / 10000
+        let rate = (round((usd.Value / (kgs.Value/Double(kgs.Nominal))) * 10000)) / 10000
         self.dataModel = Model(exchangeRate: rate)
-        
-//        let tabBar = self.tabBarController?.viewControllers
-//        let settingVC = tabBar![1] as! SettingsVC
-//        settingVC.dataModel = self.dataModel
-//        
-//        let borderVC = tabBar![2] as! BorderCalculatorVC
-//        borderVC.dataModel = self.dataModel
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CalculatorViewController.swift
+//  CalculatorVC.swift
 //  Delivery Calculator
 //
 //  Created by Тигран on 31.01.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseCalculatorVC: UIViewController {
+class CalculatorVC: UIViewController {
     var dataModel: Model? = nil
     var petrol: String = "АИ-80"
     
@@ -18,6 +18,13 @@ class BaseCalculatorVC: UIViewController {
     @IBOutlet weak var calculatorScrollView: UIScrollView!
     @IBAction func baseCalculationButton(_ sender: Any) {
         self.baseResults.text = dataModel?.calculateBasePrice(withBorderPrice: borderPrice.text, petrol: petrol)
+        self.calculatorScrollView?.endEditing(true)
+    }
+    
+    @IBOutlet weak var basePrice: UITextField!
+    @IBOutlet weak var borderResults: UILabel!
+    @IBAction func borderCalculationButton(_ sender: Any) {
+        self.borderResults.text = dataModel?.calculateBorderPrice(withBasePrice: basePrice.text, petrol: petrol)
         self.calculatorScrollView?.endEditing(true)
     }
     
@@ -62,10 +69,6 @@ class BaseCalculatorVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        let tabBar = self.tabBarController?.viewControllers
-        let settingVC = tabBar![1] as! SettingsViewController
-        settingVC.dataModel = self.dataModel
-        
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -73,5 +76,12 @@ class BaseCalculatorVC: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToSettingsVC" {
+            let settingVC = segue.destination as! SettingsViewController
+            settingVC.dataModel = self.dataModel
+        }
     }
 }
