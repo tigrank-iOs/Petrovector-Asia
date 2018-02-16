@@ -13,7 +13,7 @@
         <!--Расчет стоимости на НБ-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CalculatorViewController" customModule="Delivery_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BaseCalculatorVC" customModule="Delivery_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,20 +48,26 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="WhH-YL-8i5"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDd-AS-7Bg">
-                                        <rect key="frame" x="50" y="347" width="275" height="30"/>
+                                        <rect key="frame" x="50" y="191" width="275" height="30"/>
                                         <state key="normal" title="Рассчитать"/>
                                         <connections>
                                             <action selector="baseCalculationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5XP-GF-sDJ"/>
                                         </connections>
                                     </button>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsT-wd-KhZ">
-                                        <rect key="frame" x="50" y="116" width="275" height="216"/>
+                                        <rect key="frame" x="50" y="116" width="275" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="6tg-OD-rRi"/>
+                                        </constraints>
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFo-pr-FET">
-                                        <rect key="frame" x="166.5" y="392" width="42" height="180"/>
+                                        <rect key="frame" x="166.5" y="236" width="42" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="gEH-a9-YcB"/>
                                         </constraints>

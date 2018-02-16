@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalculatorViewController: UIViewController {
+class BaseCalculatorVC: UIViewController {
     var dataModel: Model? = nil
     var petrol: String = "АИ-80"
     
@@ -17,33 +17,8 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var baseResults: UILabel!
     @IBOutlet weak var calculatorScrollView: UIScrollView!
     @IBAction func baseCalculationButton(_ sender: Any) {
-        let borderPriceUSD = Double(borderPrice.text!)
-        let borderPriceKGS = borderPriceUSD! * (dataModel?.exchangeRate)!
-        var duty: Double = 0
-        if petrol == "ДТ" {
-            duty = (dataModel?.dieselDuty)!
-        } else {
-            duty = (dataModel?.petrolDuty)!
-        }
-        let eco = (dataModel?.ecologicalRate)!
-        let priceAfterVat = (borderPriceKGS + duty + eco) * (1.0 + ((dataModel?.vat)! / 100))
-        let railRate = (dataModel?.railwayRate)! * (dataModel?.exchangeRate)!
-        let autoRate = (dataModel?.autoRate)! / 59.0
-        let elnurRate = (dataModel?.elnurRate)! / 59.0
-        var density: Double = 0
-        switch petrol {
-        case "АИ-80":
-            density = 0.715
-        case "АИ-92":
-            density = 0.735
-        case "АИ-95":
-            density = 0.733
-        default:
-            density = 0.855
-        }
-        let liter = 1000 / density
-        let totalPrice = (priceAfterVat + railRate + autoRate + elnurRate) / liter
-        self.baseResults.text = String(totalPrice)
+        self.baseResults.text = dataModel?.calculateBasePrice(withBorderPrice: borderPrice.text, petrol: petrol)
+        self.calculatorScrollView?.endEditing(true)
     }
     
     var pickerData = [String]()

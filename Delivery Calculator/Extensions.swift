@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension CalculatorViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension BaseCalculatorVC: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -35,14 +35,14 @@ extension CalculatorViewController: UIPickerViewDataSource, UIPickerViewDelegate
     }
 }
 
-extension CalculatorViewController: UITextFieldDelegate {
+extension BaseCalculatorVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.baseCalculationButton(self)
         return true
     }
 }
 
-extension CalculatorViewController: URLSessionDataDelegate {
+extension BaseCalculatorVC: URLSessionDataDelegate {
     func downloadRate() {
         let url = URL(string: "https://www.cbr-xml-daily.ru/daily_json.js")
         let defaultSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
