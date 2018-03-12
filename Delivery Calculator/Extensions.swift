@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyXMLParser
 
 extension CalculatorVC: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -48,26 +49,32 @@ extension CalculatorVC: UITextFieldDelegate {
 
 extension CalculatorVC: URLSessionDataDelegate {
     func downloadRate() {
-        let url = URL(string: "https://www.cbr-xml-daily.ru/daily_json.js")
-        let defaultSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
+        let url = URL(string: "http://nbkr.kg/XML/daily.xml")
+		let defaultSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
         let dataTask = defaultSession.dataTask(with: url!)
         dataTask.resume()
     }
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        var response: Object?
-        do {
-            response = try JSONDecoder().decode(Object.self, from: data)
-        } catch let error {
-            print("JSONDecoder error: " + error.localizedDescription + "/n")
-            return
-        }
-        guard let kgs = response?.Valute["KGS"],
-            let usd = response?.Valute["USD"] else {
-                print("Dictionary does not contain results key/n")
-                return
-        }
-        let rate = (round((usd.Value / (kgs.Value/Double(kgs.Nominal))) * 10000)) / 10000
-        self.dataModel = Model(exchangeRate: rate)
+		let xml = XML.parse(data)
+		let rate = xml["CurrencyRates", "Currency", 0, "Value"].text
+		let doubleRate = rate?.doubleValue
+		self.dataModel = Model(exchangeRate: doubleRate!)
     }
+}
+
+extension String {
+	static let numberFormatter = NumberFormatter()
+	var doubleValue: Double {
+		String.numberFormatter.decimalSeparator = "."
+		if let result =  String.numberFormatter.number(from: self) {
+			return result.doubleValue
+		} else {
+			String.numberFormatter.decimalSeparator = ","
+			if let result = String.numberFormatter.number(from: self) {
+				return result.doubleValue
+			}
+		}
+		return 0
+	}
 }
