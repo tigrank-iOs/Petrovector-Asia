@@ -154,7 +154,7 @@
         <!--Настройки-->
         <scene sceneID="SVz-Q8-hrU">
             <objects>
-                <viewController id="pwN-cY-6ZV" customClass="SettingsViewController" customModule="Delivery_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pwN-cY-6ZV" customClass="SettingsVC" customModule="Delivery_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8W5-WM-qKv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

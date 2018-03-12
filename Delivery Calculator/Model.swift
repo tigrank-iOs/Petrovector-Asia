@@ -35,8 +35,8 @@ class Model: NSObject {
         self.ecologicalRate = 95
         self.vat = 12
         self.railwayRate = 13.5
-        self.autoRate = 1000
-        self.elnurRate = 4500
+        self.autoRate = 0
+        self.elnurRate = 5550
         self.density80 = 0.715
         self.density92 = 0.735
         self.density95 = 0.733

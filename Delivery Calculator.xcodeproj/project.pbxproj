@@ -15,7 +15,7 @@
 		C2B84D8D2021D3F800ACEF13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D8C2021D3F800ACEF13 /* Assets.xcassets */; };
 		C2B84D902021D3F800ACEF13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D8E2021D3F800ACEF13 /* LaunchScreen.storyboard */; };
 		C2B84D982021D4A700ACEF13 /* CalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */; };
-		C2B84D9A2021D4B500ACEF13 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D992021D4B500ACEF13 /* SettingsViewController.swift */; };
+		C2B84D9A2021D4B500ACEF13 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D992021D4B500ACEF13 /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		C2B84D8F2021D3F800ACEF13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2B84D912021D3F800ACEF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorVC.swift; sourceTree = "<group>"; };
-		C2B84D992021D4B500ACEF13 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C2B84D992021D4B500ACEF13 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 				C2B84D8E2021D3F800ACEF13 /* LaunchScreen.storyboard */,
 				C2B84D912021D3F800ACEF13 /* Info.plist */,
 				C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */,
-				C2B84D992021D4B500ACEF13 /* SettingsViewController.swift */,
+				C2B84D992021D4B500ACEF13 /* SettingsVC.swift */,
 			);
 			path = "Delivery Calculator";
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 				C2639E592036E30900AA471F /* Extensions.swift in Sources */,
 				C2B6871D20347200000D5CAB /* DecodableModel.swift in Sources */,
 				C2B84D862021D3F800ACEF13 /* AppDelegate.swift in Sources */,
-				C2B84D9A2021D4B500ACEF13 /* SettingsViewController.swift in Sources */,
+				C2B84D9A2021D4B500ACEF13 /* SettingsVC.swift in Sources */,
 				C2B6871920345F50000D5CAB /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,7 +227,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -278,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -293,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FAZLBWG687;
 				INFOPLIST_FILE = "Delivery Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.petrovectorgroup.Delivery-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -308,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FAZLBWG687;
 				INFOPLIST_FILE = "Delivery Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.petrovectorgroup.Delivery-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";

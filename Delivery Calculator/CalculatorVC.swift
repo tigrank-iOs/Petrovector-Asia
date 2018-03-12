@@ -80,7 +80,7 @@ class CalculatorVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToSettingsVC" {
-            let settingVC = segue.destination as! SettingsViewController
+            let settingVC = segue.destination as! SettingsVC
             settingVC.dataModel = self.dataModel
         }
     }
