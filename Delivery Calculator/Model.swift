@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Model: NSObject {
+class Model {
     
     var exchangeRate: Double? = nil
     var petrolDuty: Double? = nil
@@ -23,12 +23,22 @@ class Model: NSObject {
     var density95: Double? = nil
     var densityDT: Double? = nil
     
-    override init() {
-        super.init()
-    }
+	init(storage: UserDefaults) {
+		self.exchangeRate = storage.double(forKey: "rate")
+		self.petrolDuty = storage.double(forKey: "petrolDuty")
+		self.dieselDuty = storage.double(forKey: "dieselDuty")
+		self.ecologicalRate = storage.double(forKey: "ecologicalRate")
+		self.vat = storage.double(forKey: "vat")
+		self.railwayRate = storage.double(forKey: "railwayRate")
+		self.autoRate = storage.double(forKey: "autoRate")
+		self.elnurRate = storage.double(forKey: "elnurRate")
+		self.density80 = storage.double(forKey: "density80")
+		self.density92 = storage.double(forKey: "density92")
+		self.density95 = storage.double(forKey: "density95")
+		self.densityDT = storage.double(forKey: "densityDT")
+	}
     
-    convenience init(exchangeRate: Double) {
-        self.init()
+	init(exchangeRate: Double) {
         self.exchangeRate = exchangeRate
         self.petrolDuty = 5000
         self.dieselDuty = 400
@@ -74,7 +84,7 @@ class Model: NSObject {
         let totalPrice = (round(((priceAfterVat + railRate + autoRate + elnurRate) / liter) * 100)) / 100
         return "Итоговая цена за литр \(petrol) на нефтебаза составит \(totalPrice) сом."
     }
-//    ((priceAfterVat + railRate + autoRate + elnurRate) / liter)
+	
     func calculateBorderPrice(withBasePrice price: String?, petrol: String) -> String {
         guard let priceKGS = Double(price!) else {
             return "Вы ввели недопустимую стоимость топлива"

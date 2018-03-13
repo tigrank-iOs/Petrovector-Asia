@@ -231,25 +231,37 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="pwN-cY-6ZV" id="VqH-ch-8ql"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdS-q9-w8l">
                                                         <rect key="frame" x="0.0" y="30" width="100" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="pwN-cY-6ZV" id="0Gd-bX-Ptd"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eDS-hf-npf">
                                                         <rect key="frame" x="0.0" y="60" width="100" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="pwN-cY-6ZV" id="DSl-Gk-a1s"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sms-G1-RAj">
                                                         <rect key="frame" x="0.0" y="90" width="100" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="pwN-cY-6ZV" id="7vY-lQ-od1"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -291,19 +303,28 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="pwN-cY-6ZV" id="1km-Ww-S84"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1dG-j5-RLl">
                                                         <rect key="frame" x="0.0" y="30" width="100" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="pwN-cY-6ZV" id="OXU-E6-rZj"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="050-Nn-cEU">
                                                         <rect key="frame" x="0.0" y="60" width="100" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="pwN-cY-6ZV" id="TJT-Ag-2sm"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -365,13 +386,19 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="pwN-cY-6ZV" id="2JJ-4k-sPh"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3sn-nQ-vzp">
                                                         <rect key="frame" x="0.0" y="30" width="100" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="pwN-cY-6ZV" id="gtm-0c-IGV"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -439,13 +466,19 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="pwN-cY-6ZV" id="hFI-Qx-lQK"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yNS-eh-2DM">
                                                         <rect key="frame" x="0.0" y="40" width="100" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="pwN-cY-6ZV" id="KSe-ra-TuV"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -709,6 +742,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="s1N-ln-KJc"/>
+        <segue reference="A9x-BQ-PlX"/>
     </inferredMetricsTieBreakers>
 </document>

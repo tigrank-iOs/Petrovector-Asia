@@ -52,15 +52,51 @@ extension CalculatorVC: URLSessionDataDelegate {
         let url = URL(string: "http://nbkr.kg/XML/daily.xml")
 		let defaultSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
         let dataTask = defaultSession.dataTask(with: url!)
-        dataTask.resume()
-    }
+		dataTask.resume()
+	}
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
 		let xml = XML.parse(data)
 		let rate = xml["CurrencyRates", "Currency", 0, "Value"].text
 		let doubleRate = rate?.doubleValue
-		self.dataModel = Model(exchangeRate: doubleRate!)
+		if checkSavedValues() {
+			let userDefaults = UserDefaults.standard
+			self.dataModel = Model(storage: userDefaults)
+		} else {
+			self.dataModel = Model(exchangeRate: doubleRate!)
+		}
     }
+	
+	func checkSavedValues() -> Bool {
+		let userDefaults = UserDefaults.standard
+		if userDefaults.value(forKey: "rate") == nil {
+			return false
+		} else {
+			return true
+		}
+	}
+}
+
+extension SettingsVC: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		let textFields = [petrolDuty, dieselDuty, ecologicalRate, vat, railwayRate, autoRate, elnurRate, density80, density92, density95, densityDT]
+		if textField.returnKeyType == .done {
+			saveButton(self)
+			settingsScrollView.endEditing(true)
+			return true
+		} else if textField.returnKeyType == .continue {
+			let currentTextFieldNumber = textFields.index(where: { selectedTextField -> Bool in
+				guard selectedTextField == textField else {
+					return false
+				}
+				return true
+			})
+			saveButton(self)
+			textFields[currentTextFieldNumber! + 1]?.becomeFirstResponder()
+			return true
+		}
+		return false
+	}
 }
 
 extension String {

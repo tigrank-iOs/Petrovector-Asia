@@ -28,6 +28,24 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var densityDT: UITextField!
     
     @IBAction func saveButton(_ sender: Any) {
+		let userDefaults = UserDefaults.standard
+		userDefaults.set(dataModel?.exchangeRate, forKey: "rate")
+		userDefaults.set(petrolDuty.text?.doubleValue, forKey: "petrolDuty")
+		userDefaults.set(dieselDuty.text?.doubleValue, forKey: "dieselDuty")
+		userDefaults.set(ecologicalRate.text?.doubleValue, forKey: "ecologicalRate")
+		userDefaults.set(vat.text?.doubleValue, forKey: "vat")
+		userDefaults.set(railwayRate.text?.doubleValue, forKey: "railwayRate")
+		userDefaults.set(autoRate.text?.doubleValue, forKey: "autoRate")
+		userDefaults.set(elnurRate.text?.doubleValue, forKey: "elnurRate")
+		userDefaults.set(density80.text?.doubleValue, forKey: "density80")
+		userDefaults.set(density92.text?.doubleValue, forKey: "density92")
+		userDefaults.set(density95.text?.doubleValue, forKey: "density95")
+		userDefaults.set(densityDT.text?.doubleValue, forKey: "densityDT")
+		
+		self.dataModel = Model(storage: userDefaults)
+		let navigationVC = self.parent as! UINavigationController
+		let calculatorVC = navigationVC.viewControllers[0] as! CalculatorVC
+		calculatorVC.dataModel = dataModel
     }
     
     override func viewDidLoad() {
