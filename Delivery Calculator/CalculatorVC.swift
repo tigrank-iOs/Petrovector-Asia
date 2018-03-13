@@ -30,25 +30,6 @@ class CalculatorVC: UIViewController {
     
     var pickerData = [String]()
     
-    @objc func keyboardWasShown(notification: Notification) {
-        let info = notification.userInfo! as NSDictionary
-        let kbSize = (info.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
-        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
-        
-        self.calculatorScrollView?.contentInset = contentInsets
-        calculatorScrollView?.scrollIndicatorInsets = contentInsets
-    }
-    
-    @objc func keyboardWillBeHidden(notification: Notification) {
-        let contentInsets = UIEdgeInsets.zero
-        calculatorScrollView?.contentInset = contentInsets
-        calculatorScrollView?.scrollIndicatorInsets = contentInsets
-    }
-    
-    @objc func hideKeyboard() {
-        self.calculatorScrollView?.endEditing(true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.petrolPicker.delegate = self
@@ -60,6 +41,8 @@ class CalculatorVC: UIViewController {
         
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         calculatorScrollView?.addGestureRecognizer(hideKeyboardGesture)
+		
+		calculatorScrollView.isScrollEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,10 +56,33 @@ class CalculatorVC: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+	
+	@objc func keyboardWasShown(notification: Notification) {
+		let info = notification.userInfo! as NSDictionary
+		let kbSize = (info.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
+		let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
+		
+		calculatorScrollView?.contentInset = contentInsets
+		calculatorScrollView?.scrollIndicatorInsets = contentInsets
+		
+		calculatorScrollView.isScrollEnabled = true
+	}
+	
+	@objc func keyboardWillBeHidden(notification: Notification) {
+		let contentInsets = UIEdgeInsets.zero
+		calculatorScrollView?.contentInset = contentInsets
+		calculatorScrollView?.scrollIndicatorInsets = contentInsets
+		
+		calculatorScrollView.bounds = CGRect(x: 0.0, y: 0.0, width: calculatorScrollView.bounds.width, height: calculatorScrollView.bounds.height)
+		calculatorScrollView.isScrollEnabled = false
+	}
+	
+	@objc func hideKeyboard() {
+		self.calculatorScrollView?.endEditing(true)
+		
+		calculatorScrollView.bounds = CGRect(x: 0.0, y: 0.0, width: calculatorScrollView.bounds.width, height: calculatorScrollView.bounds.height)
+		calculatorScrollView.isScrollEnabled = false
+	}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToSettingsVC" {

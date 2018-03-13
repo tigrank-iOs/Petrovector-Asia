@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5151C197F2E6166C0E172188 /* Pods_Delivery_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3406310C5AECD2D3ECE6023 /* Pods_Delivery_Calculator.framework */; };
 		C2639E592036E30900AA471F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2639E582036E30900AA471F /* Extensions.swift */; };
 		C2B6871920345F50000D5CAB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6871820345F50000D5CAB /* Model.swift */; };
 		C2B6871D20347200000D5CAB /* DecodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6871C20347200000D5CAB /* DecodableModel.swift */; };
@@ -17,11 +16,13 @@
 		C2B84D902021D3F800ACEF13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D8E2021D3F800ACEF13 /* LaunchScreen.storyboard */; };
 		C2B84D982021D4A700ACEF13 /* CalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */; };
 		C2B84D9A2021D4B500ACEF13 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D992021D4B500ACEF13 /* SettingsVC.swift */; };
+		F0F66AC51172269731A2EBC1 /* Pods_Delivery_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7EE7ED20295567A52C9676F /* Pods_Delivery_Calculator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		25D87642126DAEB4759EF16C /* Pods-Delivery Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery Calculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Delivery Calculator/Pods-Delivery Calculator.release.xcconfig"; sourceTree = "<group>"; };
-		729F315EDD626089ECCB57CE /* Pods-Delivery Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery Calculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Delivery Calculator/Pods-Delivery Calculator.debug.xcconfig"; sourceTree = "<group>"; };
+		74957A8FFB4523F734E7AA70 /* Pods-Delivery Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery Calculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Delivery Calculator/Pods-Delivery Calculator.release.xcconfig"; sourceTree = "<group>"; };
+		97BBC3413015FAFB0153262B /* Pods-Delivery Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery Calculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Delivery Calculator/Pods-Delivery Calculator.debug.xcconfig"; sourceTree = "<group>"; };
+		B7EE7ED20295567A52C9676F /* Pods_Delivery_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Delivery_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2639E582036E30900AA471F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C2B6871820345F50000D5CAB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C2B6871C20347200000D5CAB /* DecodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableModel.swift; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		C2B84D912021D3F800ACEF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorVC.swift; sourceTree = "<group>"; };
 		C2B84D992021D4B500ACEF13 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
-		F3406310C5AECD2D3ECE6023 /* Pods_Delivery_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Delivery_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,26 +41,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5151C197F2E6166C0E172188 /* Pods_Delivery_Calculator.framework in Frameworks */,
+				F0F66AC51172269731A2EBC1 /* Pods_Delivery_Calculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A30ABE19225B679B35E0D58 /* Pods */ = {
+		7C72129D31FC5DD7FE8B7B81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				729F315EDD626089ECCB57CE /* Pods-Delivery Calculator.debug.xcconfig */,
-				25D87642126DAEB4759EF16C /* Pods-Delivery Calculator.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		A77CD937720D29366E53BAF0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F3406310C5AECD2D3ECE6023 /* Pods_Delivery_Calculator.framework */,
+				B7EE7ED20295567A52C9676F /* Pods_Delivery_Calculator.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -70,8 +61,8 @@
 			children = (
 				C2B84D842021D3F800ACEF13 /* Delivery Calculator */,
 				C2B84D832021D3F800ACEF13 /* Products */,
-				6A30ABE19225B679B35E0D58 /* Pods */,
-				A77CD937720D29366E53BAF0 /* Frameworks */,
+				F7BD068B9BFDD67E3B51FB07 /* Pods */,
+				7C72129D31FC5DD7FE8B7B81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +91,15 @@
 			path = "Delivery Calculator";
 			sourceTree = "<group>";
 		};
+		F7BD068B9BFDD67E3B51FB07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97BBC3413015FAFB0153262B /* Pods-Delivery Calculator.debug.xcconfig */,
+				74957A8FFB4523F734E7AA70 /* Pods-Delivery Calculator.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,12 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2B84D942021D3F800ACEF13 /* Build configuration list for PBXNativeTarget "Delivery Calculator" */;
 			buildPhases = (
-				61A704756AFC516CDA0F1FEC /* [CP] Check Pods Manifest.lock */,
+				26CF73B2F53D9DB9580C9E29 /* [CP] Check Pods Manifest.lock */,
 				C2B84D7E2021D3F800ACEF13 /* Sources */,
 				C2B84D7F2021D3F800ACEF13 /* Frameworks */,
 				C2B84D802021D3F800ACEF13 /* Resources */,
-				C3592009BFF0522877104D01 /* [CP] Embed Pods Frameworks */,
-				B8974022DEF0DA8C263FB8AB /* [CP] Copy Pods Resources */,
+				9DDE587BCCEF1F7A0C1EE6BF /* [CP] Embed Pods Frameworks */,
+				EC3AD8444B68F8A3627B4EF9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,9 +171,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		61A704756AFC516CDA0F1FEC /* [CP] Check Pods Manifest.lock */ = {
+		26CF73B2F53D9DB9580C9E29 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -189,24 +189,9 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B8974022DEF0DA8C263FB8AB /* [CP] Copy Pods Resources */ = {
+		9DDE587BCCEF1F7A0C1EE6BF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Delivery Calculator/Pods-Delivery Calculator-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C3592009BFF0522877104D01 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -220,6 +205,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Delivery Calculator/Pods-Delivery Calculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC3AD8444B68F8A3627B4EF9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Delivery Calculator/Pods-Delivery Calculator-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -369,7 +369,7 @@
 		};
 		C2B84D952021D3F800ACEF13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 729F315EDD626089ECCB57CE /* Pods-Delivery Calculator.debug.xcconfig */;
+			baseConfigurationReference = 97BBC3413015FAFB0153262B /* Pods-Delivery Calculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -386,7 +386,7 @@
 		};
 		C2B84D962021D3F800ACEF13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25D87642126DAEB4759EF16C /* Pods-Delivery Calculator.release.xcconfig */;
+			baseConfigurationReference = 74957A8FFB4523F734E7AA70 /* Pods-Delivery Calculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

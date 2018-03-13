@@ -13,6 +13,7 @@ class SettingsVC: UIViewController {
     var dataModel: Model? = nil
 
     @IBOutlet weak var settingsScrollView: UIScrollView!
+	
     @IBOutlet weak var exchangeRate: UILabel!
     @IBOutlet weak var petrolDuty: UITextField!
     @IBOutlet weak var dieselDuty: UITextField!
@@ -27,25 +28,6 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var densityDT: UITextField!
     
     @IBAction func saveButton(_ sender: Any) {
-    }
-    
-    @objc func keyboardWasShown(notification: Notification) {
-        let info = notification.userInfo! as NSDictionary
-        let kbSize = (info.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
-        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
-        
-        self.settingsScrollView?.contentInset = contentInsets
-        settingsScrollView?.scrollIndicatorInsets = contentInsets
-    }
-    
-    @objc func keyboardWillBeHidden(notification: Notification) {
-        let contentInsets = UIEdgeInsets.zero
-        settingsScrollView?.contentInset = contentInsets
-        settingsScrollView?.scrollIndicatorInsets = contentInsets
-    }
-    
-    @objc func hideKeyboard() {
-        self.settingsScrollView?.endEditing(true)
     }
     
     override func viewDidLoad() {
@@ -80,8 +62,25 @@ class SettingsVC: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+	
+	@objc func keyboardWasShown(notification: Notification) {
+		let info = notification.userInfo! as NSDictionary
+		let kbSize = (info.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
+		let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
+		
+		settingsScrollView?.contentInset = contentInsets
+		settingsScrollView?.scrollIndicatorInsets = contentInsets
+	}
+	
+	@objc func keyboardWillBeHidden(notification: Notification) {
+		let contentInsets = UIEdgeInsets.zero
+		settingsScrollView?.contentInset = contentInsets
+		settingsScrollView?.scrollIndicatorInsets = contentInsets
+	}
+	
+	@objc func hideKeyboard() {
+		self.settingsScrollView?.endEditing(true)
+	}
+	
+	
 }
