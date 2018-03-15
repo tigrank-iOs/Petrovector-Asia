@@ -23,22 +23,22 @@ class Model {
     var density95: Double? = nil
     var densityDT: Double? = nil
     
-	init(storage: UserDefaults) {
-		self.exchangeRate = storage.double(forKey: "rate")
-		self.petrolDuty = storage.double(forKey: "petrolDuty")
-		self.dieselDuty = storage.double(forKey: "dieselDuty")
-		self.ecologicalRate = storage.double(forKey: "ecologicalRate")
-		self.vat = storage.double(forKey: "vat")
-		self.railwayRate = storage.double(forKey: "railwayRate")
-		self.autoRate = storage.double(forKey: "autoRate")
-		self.elnurRate = storage.double(forKey: "elnurRate")
-		self.density80 = storage.double(forKey: "density80")
-		self.density92 = storage.double(forKey: "density92")
-		self.density95 = storage.double(forKey: "density95")
-		self.densityDT = storage.double(forKey: "densityDT")
-	}
+    init(storage: UserDefaults) {
+        self.exchangeRate = storage.double(forKey: "rate")
+        self.petrolDuty = storage.double(forKey: "petrolDuty")
+        self.dieselDuty = storage.double(forKey: "dieselDuty")
+        self.ecologicalRate = storage.double(forKey: "ecologicalRate")
+        self.vat = storage.double(forKey: "vat")
+        self.railwayRate = storage.double(forKey: "railwayRate")
+        self.autoRate = storage.double(forKey: "autoRate")
+        self.elnurRate = storage.double(forKey: "elnurRate")
+        self.density80 = storage.double(forKey: "density80")
+        self.density92 = storage.double(forKey: "density92")
+        self.density95 = storage.double(forKey: "density95")
+        self.densityDT = storage.double(forKey: "densityDT")
+    }
     
-	init(exchangeRate: Double) {
+    init(exchangeRate: Double) {
         self.exchangeRate = exchangeRate
         self.petrolDuty = 5000
         self.dieselDuty = 400
@@ -84,7 +84,7 @@ class Model {
         let totalPrice = (round(((priceAfterVat + railRate + autoRate + elnurRate) / liter) * 100)) / 100
         return "Итоговая цена за литр \(petrol) на нефтебаза составит \(totalPrice) сом."
     }
-	
+    
     func calculateBorderPrice(withBasePrice price: String?, petrol: String) -> String {
         guard let priceKGS = Double(price!) else {
             return "Вы ввели недопустимую стоимость топлива"
