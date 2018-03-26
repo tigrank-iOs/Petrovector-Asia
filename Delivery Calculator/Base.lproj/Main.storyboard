@@ -72,7 +72,7 @@
                                         <color key="tintColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ7-Ii-hNf">
-                                        <rect key="frame" x="47" y="146" width="320" height="89"/>
+                                        <rect key="frame" x="47" y="146" width="320" height="129"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вид топлива" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taM-LX-K7e">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="17"/>
@@ -81,15 +81,15 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsT-wd-KhZ">
-                                                <rect key="frame" x="0.0" y="29" width="320" height="60"/>
+                                                <rect key="frame" x="0.0" y="29" width="320" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="6tg-OD-rRi"/>
+                                                    <constraint firstAttribute="height" constant="100" id="6tg-OD-rRi"/>
                                                 </constraints>
                                             </pickerView>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDd-AS-7Bg">
-                                        <rect key="frame" x="60" y="283" width="295" height="50"/>
+                                        <rect key="frame" x="60" y="323" width="295" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Pxl-eb-3ZL"/>
@@ -110,7 +110,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qck-hy-aLy" userLabel="OutputPriceStack">
-                                        <rect key="frame" x="105.66666666666669" y="381" width="203" height="62"/>
+                                        <rect key="frame" x="105.66666666666669" y="421" width="203" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgl-u1-Aqj">
                                                 <rect key="frame" x="0.0" y="0.0" width="203" height="62"/>

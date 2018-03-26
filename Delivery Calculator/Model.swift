@@ -70,7 +70,7 @@ class Model {
 	}
     
     func calculateBasePrice(withBorderPrice price: String?, petrol: String) -> String {
-        guard let priceUSD = Double(price!) else {
+        guard let priceUSD = price?.doubleValue else {
             return "Вы ввели недопустимую стоимость топлива"
         }
         let priceKGS = priceUSD * (self.exchangeRate)!
@@ -102,7 +102,7 @@ class Model {
     }
     
     func calculateBorderPrice(withBasePrice price: String?, petrol: String) -> String {
-        guard let priceKGS = Double(price!) else {
+        guard let priceKGS = price?.doubleValue else {
             return "Вы ввели недопустимую стоимость топлива"
         }
         var density: Double = 0

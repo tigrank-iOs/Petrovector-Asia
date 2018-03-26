@@ -49,6 +49,8 @@ class SettingsTableVC: UITableViewController {
 		let action = UIAlertAction(title: "Ок", style: .default)
 		alert.addAction(action)
 		self.present(alert, animated: true)
+		
+		hideKeyboard()
 	}
 
     override func viewDidLoad() {
