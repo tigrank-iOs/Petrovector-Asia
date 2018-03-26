@@ -9,33 +9,35 @@
 import UIKit
 
 class CalculatorVC: UIViewController {
-    var dataModel: Model? = nil
+    var dataModel: Model?
     var petrol: String = "АИ-80"
-    
-    @IBOutlet weak var borderPrice: UITextField!
+
+	@IBOutlet weak var whereSelector: UISegmentedControl!
+	@IBOutlet weak var incomePriceTag: UILabel!
+	@IBOutlet weak var incomePrice: UITextField!
+	@IBOutlet weak var outcomePrice: UILabel!
+	@IBOutlet weak var outcomePriceTag: UILabel!
     @IBOutlet weak var petrolPicker: UIPickerView!
-    @IBOutlet weak var baseResults: UILabel!
     @IBOutlet weak var calculatorScrollView: UIScrollView!
-    @IBAction func baseCalculationButton(_ sender: Any) {
-        self.baseResults.text = dataModel?.calculateBasePrice(withBorderPrice: borderPrice.text, petrol: petrol)
-        self.calculatorScrollView?.endEditing(true)
-    }
-    
-    @IBOutlet weak var basePrice: UITextField!
-    @IBOutlet weak var borderResults: UILabel!
-    @IBAction func borderCalculationButton(_ sender: Any) {
-        self.borderResults.text = dataModel?.calculateBorderPrice(withBasePrice: basePrice.text, petrol: petrol)
-        self.calculatorScrollView?.endEditing(true)
+	@IBOutlet weak var calculationButton: UIButton!
+    @IBAction func calculationPressed(_ sender: Any) {
+		if whereSelector.selectedSegmentIndex == 0 {
+			self.outcomePrice.text = dataModel?.calculateBorderPrice(withBasePrice: incomePrice.text, petrol: petrol)
+			self.calculatorScrollView?.endEditing(true)
+		} else if whereSelector.selectedSegmentIndex == 1 {
+			self.outcomePrice.text = dataModel?.calculateBasePrice(withBorderPrice: incomePrice.text, petrol: petrol)
+			self.calculatorScrollView?.endEditing(true)
+		}
     }
     
     var pickerData = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.petrolPicker.delegate = self
-        self.petrolPicker.dataSource = self
+        petrolPicker.delegate = self
+        petrolPicker.dataSource = self
         
-        self.downloadRate()
+        downloadRate()
         
         pickerData = ["АИ-80", "АИ-92", "АИ-95", "ДТ"]
         
@@ -43,12 +45,20 @@ class CalculatorVC: UIViewController {
         calculatorScrollView?.addGestureRecognizer(hideKeyboardGesture)
 		
 		calculatorScrollView.isScrollEnabled = false
+		
+		incomePrice.keyboardType = .decimalPad
+		
+		whereSelector.addTarget(self, action: #selector(self.whereChanged), for: .allEvents)
+		
+		incomePrice.setBottomBorder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+		incomePrice.becomeFirstResponder()
+		incomePrice.text = ""
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,7 +75,9 @@ class CalculatorVC: UIViewController {
 		calculatorScrollView?.contentInset = contentInsets
 		calculatorScrollView?.scrollIndicatorInsets = contentInsets
 		
-		calculatorScrollView.isScrollEnabled = true
+		if Int(UIScreen.main.bounds.size.height) <= 568 {
+			calculatorScrollView.isScrollEnabled = true
+		}
 	}
 	
 	@objc func keyboardWillBeHidden(notification: Notification) {
@@ -82,11 +94,26 @@ class CalculatorVC: UIViewController {
 		
 		calculatorScrollView.bounds = CGRect(x: 0.0, y: 0.0, width: calculatorScrollView.bounds.width, height: calculatorScrollView.bounds.height)
 		calculatorScrollView.isScrollEnabled = false
+		self.calculationPressed(self)
+	}
+	
+	@objc func whereChanged() {
+		if whereSelector.selectedSegmentIndex == 0 {
+			incomePriceTag.text = "Стоимость топлива за литр"
+			incomePrice.placeholder = "0 сом."
+			outcomePriceTag.text = "за тонну"
+			incomePrice.becomeFirstResponder()
+		} else if whereSelector.selectedSegmentIndex == 1 {
+			incomePriceTag.text = "Стоимость топлива за тонну"
+			incomePrice.placeholder = "$ 0"
+			outcomePriceTag.text = "за литр"
+			incomePrice.becomeFirstResponder()
+		}
 	}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToSettingsVC" {
-            let settingVC = segue.destination as! SettingsVC
+            let settingVC = segue.destination as! SettingsTableVC
             settingVC.dataModel = self.dataModel
         }
     }

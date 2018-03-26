@@ -9,20 +9,20 @@
 import Foundation
 
 class Model {
-    
-    var exchangeRate: Double? = nil
-    var petrolDuty: Double? = nil
-    var dieselDuty: Double? = nil
-    var ecologicalRate: Double? = nil
-    var vat: Double? = nil
-    var railwayRate: Double? = nil
-    var autoRate: Double? = nil
-    var elnurRate: Double? = nil
-    var density80: Double? = nil
-    var density92: Double? = nil
-    var density95: Double? = nil
-    var densityDT: Double? = nil
-    
+	
+    var exchangeRate: Double?
+    var petrolDuty: Double?
+    var dieselDuty: Double?
+    var ecologicalRate: Double?
+    var vat: Double?
+    var railwayRate: Double?
+    var autoRate: Double?
+    var elnurRate: Double?
+    var density80: Double?
+    var density92: Double?
+    var density95: Double?
+    var densityDT: Double?
+	
     init(storage: UserDefaults) {
         self.exchangeRate = storage.double(forKey: "rate")
         self.petrolDuty = storage.double(forKey: "petrolDuty")
@@ -37,7 +37,7 @@ class Model {
         self.density95 = storage.double(forKey: "density95")
         self.densityDT = storage.double(forKey: "densityDT")
     }
-    
+	
     init(exchangeRate: Double) {
         self.exchangeRate = exchangeRate
         self.petrolDuty = 5000
@@ -52,6 +52,22 @@ class Model {
         self.density95 = 0.733
         self.densityDT = 0.855
     }
+	
+	convenience init() {
+		self.init()
+		self.exchangeRate = 0
+		self.petrolDuty = 0
+		self.dieselDuty = 0
+		self.ecologicalRate = 0
+		self.vat = 0
+		self.railwayRate = 0
+		self.autoRate = 0
+		self.elnurRate = 0
+		self.density80 = 0
+		self.density92 = 0
+		self.density95 = 0
+		self.densityDT = 0
+	}
     
     func calculateBasePrice(withBorderPrice price: String?, petrol: String) -> String {
         guard let priceUSD = Double(price!) else {
@@ -82,7 +98,7 @@ class Model {
         }
         let liter = 1000 / density
         let totalPrice = (round(((priceAfterVat + railRate + autoRate + elnurRate) / liter) * 100)) / 100
-        return "Итоговая цена за литр \(petrol) на нефтебаза составит \(totalPrice) сом."
+        return "\(totalPrice) сом"
     }
     
     func calculateBorderPrice(withBasePrice price: String?, petrol: String) -> String {
@@ -114,6 +130,6 @@ class Model {
         }
         let eco = (self.ecologicalRate)!
         let totalPrice = (round(((priceBeforeVat - eco - duty) / self.exchangeRate!) * 100)) / 100
-        return "Итоговая цена за тонну \(petrol) на границе составит $ \(totalPrice)."
+        return "$ \(totalPrice)"
     }
 }

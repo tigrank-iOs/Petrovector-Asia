@@ -38,13 +38,44 @@ extension CalculatorVC: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension CalculatorVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard textField == borderPrice else {
-            self.borderCalculationButton(self)
-            return true
-        }
-        self.baseCalculationButton(self)
+        self.calculationPressed(self)
         return true
     }
+	
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		textField.text = ""
+		outcomePrice.isHidden = true
+		outcomePriceTag.isHidden = true
+		if (textField.text?.isEmpty)! {
+			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+			calculationButton.isEnabled = false
+		} else {
+			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+			calculationButton.isEnabled = true
+		}
+	}
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		if (textField.text?.isEmpty)! {
+			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+			calculationButton.isEnabled = false
+			return true
+		} else {
+			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+			calculationButton.isEnabled = true
+			return true
+		}
+	}
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		if (textField.text?.isEmpty)! {
+			outcomePrice.isHidden = true
+			outcomePriceTag.isHidden = true
+		} else {
+			outcomePrice.isHidden = false
+			outcomePriceTag.isHidden = false
+		}
+	}
 }
 
 extension CalculatorVC: URLSessionDataDelegate {
@@ -77,12 +108,11 @@ extension CalculatorVC: URLSessionDataDelegate {
     }
 }
 
-extension SettingsVC: UITextFieldDelegate {
+extension SettingsTableVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let textFields = [petrolDuty, dieselDuty, ecologicalRate, vat, railwayRate, autoRate, elnurRate, density80, density92, density95, densityDT]
         if textField.returnKeyType == .done {
             saveButton(self)
-            settingsScrollView.endEditing(true)
             return true
         } else if textField.returnKeyType == .continue {
             let currentTextFieldNumber = textFields.index(where: { selectedTextField -> Bool in
@@ -91,7 +121,6 @@ extension SettingsVC: UITextFieldDelegate {
                 }
                 return true
             })
-            saveButton(self)
             textFields[currentTextFieldNumber! + 1]?.becomeFirstResponder()
             return true
         }
@@ -113,4 +142,17 @@ extension String {
         }
         return 0
     }
+}
+
+extension UITextField {
+	func setBottomBorder() {
+		self.borderStyle = .none
+		self.layer.backgroundColor = UIColor.white.cgColor
+		
+		self.layer.masksToBounds = false
+		self.layer.shadowColor = UIColor.lightGray.cgColor
+		self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+		self.layer.shadowOpacity = 1.0
+		self.layer.shadowRadius = 0.0
+	}
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C21D2D992069188B00772B66 /* SettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21D2D982069188B00772B66 /* SettingsTableVC.swift */; };
 		C2639E592036E30900AA471F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2639E582036E30900AA471F /* Extensions.swift */; };
 		C2B6871920345F50000D5CAB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6871820345F50000D5CAB /* Model.swift */; };
 		C2B84D862021D3F800ACEF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D852021D3F800ACEF13 /* AppDelegate.swift */; };
@@ -14,7 +15,6 @@
 		C2B84D8D2021D3F800ACEF13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D8C2021D3F800ACEF13 /* Assets.xcassets */; };
 		C2B84D902021D3F800ACEF13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D8E2021D3F800ACEF13 /* LaunchScreen.storyboard */; };
 		C2B84D982021D4A700ACEF13 /* CalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */; };
-		C2B84D9A2021D4B500ACEF13 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D992021D4B500ACEF13 /* SettingsVC.swift */; };
 		F0F66AC51172269731A2EBC1 /* Pods_Delivery_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7EE7ED20295567A52C9676F /* Pods_Delivery_Calculator.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +22,7 @@
 		74957A8FFB4523F734E7AA70 /* Pods-Delivery Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery Calculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Delivery Calculator/Pods-Delivery Calculator.release.xcconfig"; sourceTree = "<group>"; };
 		97BBC3413015FAFB0153262B /* Pods-Delivery Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery Calculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Delivery Calculator/Pods-Delivery Calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		B7EE7ED20295567A52C9676F /* Pods_Delivery_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Delivery_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C21D2D982069188B00772B66 /* SettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableVC.swift; sourceTree = "<group>"; };
 		C2639E582036E30900AA471F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C2B6871820345F50000D5CAB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C2B84D822021D3F800ACEF13 /* Delivery Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Delivery Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,7 +32,6 @@
 		C2B84D8F2021D3F800ACEF13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2B84D912021D3F800ACEF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorVC.swift; sourceTree = "<group>"; };
-		C2B84D992021D4B500ACEF13 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */,
-				C2B84D992021D4B500ACEF13 /* SettingsVC.swift */,
+				C21D2D982069188B00772B66 /* SettingsTableVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -237,7 +237,7 @@
 				C2B84D982021D4A700ACEF13 /* CalculatorVC.swift in Sources */,
 				C2639E592036E30900AA471F /* Extensions.swift in Sources */,
 				C2B84D862021D3F800ACEF13 /* AppDelegate.swift in Sources */,
-				C2B84D9A2021D4B500ACEF13 /* SettingsVC.swift in Sources */,
+				C21D2D992069188B00772B66 /* SettingsTableVC.swift in Sources */,
 				C2B6871920345F50000D5CAB /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

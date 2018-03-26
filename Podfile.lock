@@ -1,7 +1,9 @@
 PODS:
+  - SwiftLint (0.25.0)
   - SwiftyXMLParser (4.1.0)
 
 DEPENDENCIES:
+  - SwiftLint
   - SwiftyXMLParser (from `https://github.com/yahoojapan/SwiftyXMLParser.git`)
 
 EXTERNAL SOURCES:
@@ -14,8 +16,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/yahoojapan/SwiftyXMLParser.git
 
 SPEC CHECKSUMS:
+  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwiftyXMLParser: b5a79fb8a730903703d0a92d30752a0b05158967
 
-PODFILE CHECKSUM: 654784dbda9e5a1535803fc4cc65cc970696d79b
+PODFILE CHECKSUM: 594e0dc918c1185f91163dc602fb7ae3dffad628
 
 COCOAPODS: 1.4.0
