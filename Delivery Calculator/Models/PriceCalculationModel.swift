@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  PriceCalculationModel.swift
 //  Delivery Calculator
 //
 //  Created by Тигран on 14.02.2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Model {
+class PriceCalculationModel {
 	
     var exchangeRate: Double?
     var petrolDuty: Double?

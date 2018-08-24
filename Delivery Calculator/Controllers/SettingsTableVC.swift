@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import SwiftyXMLParser
 
 class SettingsTableVC: UITableViewController {
 	
-	var dataModel: Model? = nil
+	var dataModel: PriceCalculationModel? = nil
 	
 	@IBOutlet weak var exchangeRate: UILabel!
 	@IBOutlet weak var petrolDuty: UITextField!
@@ -40,7 +41,7 @@ class SettingsTableVC: UITableViewController {
 		userDefaults.set(density95.text?.doubleValue, forKey: "density95")
 		userDefaults.set(densityDT.text?.doubleValue, forKey: "densityDT")
 		
-		self.dataModel = Model(storage: userDefaults)
+		self.dataModel = PriceCalculationModel(storage: userDefaults)
 		let navigationVC = self.parent as! UINavigationController
 		let calculatorVC = navigationVC.viewControllers[0] as! CalculatorVC
 		calculatorVC.dataModel = dataModel
@@ -87,5 +88,24 @@ class SettingsTableVC: UITableViewController {
 	@objc func hideKeyboard() {
 		self.tableView.endEditing(true)
 	}
-	
+}
+
+extension SettingsTableVC: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		let textFields = [petrolDuty, dieselDuty, ecologicalRate, vat, railwayRate, autoRate, elnurRate, density80, density92, density95, densityDT]
+		if textField.returnKeyType == .done {
+			saveButton(self)
+			return true
+		} else if textField.returnKeyType == .continue {
+			let currentTextFieldNumber = textFields.index(where: { selectedTextField -> Bool in
+				guard selectedTextField == textField else {
+					return false
+				}
+				return true
+			})
+			textFields[currentTextFieldNumber! + 1]?.becomeFirstResponder()
+			return true
+		}
+		return false
+	}
 }

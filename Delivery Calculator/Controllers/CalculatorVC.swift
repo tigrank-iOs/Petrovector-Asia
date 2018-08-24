@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import SwiftyXMLParser
 
 class CalculatorVC: UIViewController {
-    var dataModel: Model?
+    var dataModel: PriceCalculationModel?
     var petrol: String = "АИ-80"
 
 	@IBOutlet weak var whereSelector: UISegmentedControl!
@@ -48,29 +49,29 @@ class CalculatorVC: UIViewController {
 		
 		incomePrice.keyboardType = .decimalPad
 		
-		whereSelector.addTarget(self, action: #selector(self.whereChanged), for: .allEvents)
+		whereSelector.addTarget(self, action: #selector(self.whereChanged), for: UIControl.Event.allEvents)
 		
 		incomePrice.setBottomBorder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 		incomePrice.becomeFirstResponder()
 		incomePrice.text = ""
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 	
 	@objc func keyboardWasShown(notification: Notification) {
 		let info = notification.userInfo! as NSDictionary
-		let kbSize = (info.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
-		let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
+		let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
+		let contentInsets = UIEdgeInsets.init(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
 		
 		calculatorScrollView?.contentInset = contentInsets
 		calculatorScrollView?.scrollIndicatorInsets = contentInsets
@@ -81,7 +82,7 @@ class CalculatorVC: UIViewController {
 	}
 	
 	@objc func keyboardWillBeHidden(notification: Notification) {
-		let contentInsets = UIEdgeInsets.zero
+		let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 		calculatorScrollView?.contentInset = contentInsets
 		calculatorScrollView?.scrollIndicatorInsets = contentInsets
 		
@@ -117,4 +118,103 @@ class CalculatorVC: UIViewController {
             settingVC.dataModel = self.dataModel
         }
     }
+}
+
+extension CalculatorVC: UIPickerViewDataSource, UIPickerViewDelegate {
+	func numberOfComponents(in pickerView: UIPickerView) -> Int {
+		return 1
+	}
+	
+	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+		return self.pickerData.count
+	}
+	
+	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+		return self.pickerData[row]
+	}
+	
+	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+		switch row {
+		case 0:
+			petrol = "АИ-80"
+		case 1:
+			petrol = "АИ-92"
+		case 2:
+			petrol = "АИ-95"
+		default:
+			petrol = "ДТ"
+		}
+	}
+}
+
+extension CalculatorVC: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		self.calculationPressed(self)
+		return true
+	}
+	
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		textField.text = ""
+		outcomePrice.isHidden = true
+		outcomePriceTag.isHidden = true
+		if (textField.text?.isEmpty)! {
+			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+			calculationButton.isEnabled = false
+		} else {
+			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+			calculationButton.isEnabled = true
+		}
+	}
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		if (textField.text?.isEmpty)! {
+			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+			calculationButton.isEnabled = false
+			return true
+		} else {
+			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+			calculationButton.isEnabled = true
+			return true
+		}
+	}
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		if (textField.text?.isEmpty)! {
+			outcomePrice.isHidden = true
+			outcomePriceTag.isHidden = true
+		} else {
+			outcomePrice.isHidden = false
+			outcomePriceTag.isHidden = false
+		}
+	}
+}
+
+extension CalculatorVC: URLSessionDataDelegate {
+	func downloadRate() {
+		let url = URL(string: "http://nbkr.kg/XML/daily.xml")
+		let defaultSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
+		let dataTask = defaultSession.dataTask(with: url!)
+		dataTask.resume()
+	}
+	
+	func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+		let xml = XML.parse(data)
+		let rate = xml["CurrencyRates", "Currency", 0, "Value"].text
+		let doubleRate = rate?.doubleValue
+		if checkSavedValues() {
+			let userDefaults = UserDefaults.standard
+			self.dataModel = PriceCalculationModel(storage: userDefaults)
+		} else {
+			self.dataModel = PriceCalculationModel(exchangeRate: doubleRate!)
+		}
+	}
+	
+	func checkSavedValues() -> Bool {
+		let userDefaults = UserDefaults.standard
+		if userDefaults.value(forKey: "rate") == nil {
+			return false
+		} else {
+			return true
+		}
+	}
 }
