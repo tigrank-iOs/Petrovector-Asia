@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		C204C41221300B4F008C0EAC /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204C41121300B4F008C0EAC /* StringExt.swift */; };
 		C204C41421300B67008C0EAC /* TextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204C41321300B67008C0EAC /* TextFieldExt.swift */; };
+		C210D02721302DD300C73F4C /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210D02621302DD300C73F4C /* MenuVC.swift */; };
+		C21CAD3C2133FCE300144979 /* PageForMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CAD3B2133FCE300144979 /* PageForMenuDelegate.swift */; };
+		C21CAD3E2133FE7800144979 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CAD3D2133FE7800144979 /* PageVC.swift */; };
+		C21CAD402134029500144979 /* MasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CAD3F2134029500144979 /* MasterVC.swift */; };
+		C21CAD442134043C00144979 /* PageNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CAD432134043C00144979 /* PageNavigationController.swift */; };
+		C21CAD47213404B600144979 /* StoryboardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CAD46213404B600144979 /* StoryboardExt.swift */; };
+		C21CAD492134086800144979 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CAD482134086800144979 /* WelcomeVC.swift */; };
+		C21CAD4D21340DF100144979 /* CountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CAD4C21340DF100144979 /* CountVC.swift */; };
 		C21D2D992069188B00772B66 /* SettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21D2D982069188B00772B66 /* SettingsTableVC.swift */; };
 		C2A10B69213021D1005E6777 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A10B68213021D1005E6777 /* LoginVC.swift */; };
 		C2B6871920345F50000D5CAB /* PriceCalculationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6871820345F50000D5CAB /* PriceCalculationModel.swift */; };
@@ -26,6 +34,14 @@
 		B7EE7ED20295567A52C9676F /* Pods_Delivery_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Delivery_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C204C41121300B4F008C0EAC /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		C204C41321300B67008C0EAC /* TextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExt.swift; sourceTree = "<group>"; };
+		C210D02621302DD300C73F4C /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		C21CAD3B2133FCE300144979 /* PageForMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageForMenuDelegate.swift; sourceTree = "<group>"; };
+		C21CAD3D2133FE7800144979 /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
+		C21CAD3F2134029500144979 /* MasterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterVC.swift; sourceTree = "<group>"; };
+		C21CAD432134043C00144979 /* PageNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigationController.swift; sourceTree = "<group>"; };
+		C21CAD46213404B600144979 /* StoryboardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExt.swift; sourceTree = "<group>"; };
+		C21CAD482134086800144979 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		C21CAD4C21340DF100144979 /* CountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountVC.swift; sourceTree = "<group>"; };
 		C21D2D982069188B00772B66 /* SettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableVC.swift; sourceTree = "<group>"; };
 		C2A10B68213021D1005E6777 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C2B6871820345F50000D5CAB /* PriceCalculationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCalculationModel.swift; sourceTree = "<group>"; };
@@ -79,16 +95,55 @@
 			children = (
 				C204C41121300B4F008C0EAC /* StringExt.swift */,
 				C204C41321300B67008C0EAC /* TextFieldExt.swift */,
+				C21CAD46213404B600144979 /* StoryboardExt.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C21CAD412134041000144979 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C21CAD422134041900144979 /* SlideOutMenu */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C21CAD422134041900144979 /* SlideOutMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C21CAD3F2134029500144979 /* MasterVC.swift */,
+				C21CAD3B2133FCE300144979 /* PageForMenuDelegate.swift */,
+				C21CAD432134043C00144979 /* PageNavigationController.swift */,
+				C21CAD3D2133FE7800144979 /* PageVC.swift */,
+			);
+			path = SlideOutMenu;
+			sourceTree = "<group>";
+		};
+		C21CAD4A21340D2100144979 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */,
+				C21D2D982069188B00772B66 /* SettingsTableVC.swift */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
+		C21CAD4B21340DC600144979 /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				C21CAD4C21340DF100144979 /* CountVC.swift */,
+			);
+			path = Forecast;
 			sourceTree = "<group>";
 		};
 		C24917AD2057E0160039C232 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				C2A10B68213021D1005E6777 /* LoginVC.swift */,
-				C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */,
-				C21D2D982069188B00772B66 /* SettingsTableVC.swift */,
+				C21CAD482134086800144979 /* WelcomeVC.swift */,
+				C210D02621302DD300C73F4C /* MenuVC.swift */,
+				C21CAD4A21340D2100144979 /* Calculator */,
+				C21CAD4B21340DC600144979 /* Forecast */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -115,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				C2B84D852021D3F800ACEF13 /* AppDelegate.swift */,
+				C21CAD412134041000144979 /* Utilities */,
 				C24917AD2057E0160039C232 /* Controllers */,
 				C204C41021300AEF008C0EAC /* Models */,
 				C204C41521300B80008C0EAC /* Helpers */,
@@ -266,12 +322,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2B84D982021D4A700ACEF13 /* CalculatorVC.swift in Sources */,
+				C21CAD3E2133FE7800144979 /* PageVC.swift in Sources */,
 				C204C41421300B67008C0EAC /* TextFieldExt.swift in Sources */,
 				C2A10B69213021D1005E6777 /* LoginVC.swift in Sources */,
 				C2B84D862021D3F800ACEF13 /* AppDelegate.swift in Sources */,
+				C21CAD492134086800144979 /* WelcomeVC.swift in Sources */,
 				C21D2D992069188B00772B66 /* SettingsTableVC.swift in Sources */,
+				C21CAD442134043C00144979 /* PageNavigationController.swift in Sources */,
+				C210D02721302DD300C73F4C /* MenuVC.swift in Sources */,
 				C204C41221300B4F008C0EAC /* StringExt.swift in Sources */,
+				C21CAD47213404B600144979 /* StoryboardExt.swift in Sources */,
 				C2B6871920345F50000D5CAB /* PriceCalculationModel.swift in Sources */,
+				C21CAD402134029500144979 /* MasterVC.swift in Sources */,
+				C21CAD4D21340DF100144979 /* CountVC.swift in Sources */,
+				C21CAD3C2133FCE300144979 /* PageForMenuDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
