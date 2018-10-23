@@ -102,17 +102,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C204C41021300AEF008C0EAC /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C2B6871820345F50000D5CAB /* PriceCalculationModel.swift */,
-				C2DB1C042135584E008CA6FC /* CountModel.swift */,
-				C2FB919E2153A59F000A6EC0 /* ForecastModel.swift */,
-				C2FB91B5215508FB000A6EC0 /* User.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		C204C41621300B85008C0EAC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,18 +118,6 @@
 				C209DDE82136A94000246DF6 /* AZSTypesPopover.swift */,
 			);
 			path = Popover;
-			sourceTree = "<group>";
-		};
-		C21CAD412134041000144979 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				C2FB91B22155072F000A6EC0 /* CustomView */,
-				C204C41621300B85008C0EAC /* Extensions */,
-				C2FB91A62153D228000A6EC0 /* Helpers */,
-				C21CAD422134041900144979 /* SlideOutMenu */,
-				C209DDEA2136A94400246DF6 /* Popover */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		C21CAD422134041900144979 /* SlideOutMenu */ = {
@@ -186,6 +163,59 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		C29EC030217F0327000A238E /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		C29EC031217F033A000A238E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				C2B6871820345F50000D5CAB /* PriceCalculationModel.swift */,
+				C2DB1C042135584E008CA6FC /* CountModel.swift */,
+				C2FB919E2153A59F000A6EC0 /* ForecastModel.swift */,
+				C2FB91B5215508FB000A6EC0 /* User.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		C29EC032217F0346000A238E /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		C29EC033217F0359000A238E /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				C24917AD2057E0160039C232 /* Controllers */,
+				C21CAD422134041900144979 /* SlideOutMenu */,
+				C209DDEA2136A94400246DF6 /* Popover */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		C29EC034217F0361000A238E /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				C2B84D912021D3F800ACEF13 /* Info.plist */,
+				C2B84D892021D3F800ACEF13 /* Main.storyboard */,
+			);
+			path = Environments;
+			sourceTree = "<group>";
+		};
+		C29EC035217F036B000A238E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C204C41621300B85008C0EAC /* Extensions */,
+				C2FB91A62153D228000A6EC0 /* Helpers */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		C2B84D792021D3F800ACEF13 = {
 			isa = PBXGroup;
 			children = (
@@ -208,11 +238,10 @@
 			isa = PBXGroup;
 			children = (
 				C2FB91AF2154E721000A6EC0 /* App */,
-				C24917AD2057E0160039C232 /* Controllers */,
-				C204C41021300AEF008C0EAC /* Models */,
+				C29EC033217F0359000A238E /* Flows */,
+				C29EC035217F036B000A238E /* Core */,
 				C2FB91B02154E743000A6EC0 /* Resources */,
-				C2FB91B12154E757000A6EC0 /* Storyboards */,
-				C21CAD412134041000144979 /* Utilities */,
+				C29EC034217F0361000A238E /* Environments */,
 			);
 			path = "Delivery Calculator";
 			sourceTree = "<group>";
@@ -234,7 +263,9 @@
 			isa = PBXGroup;
 			children = (
 				C2B84D852021D3F800ACEF13 /* AppDelegate.swift */,
-				C2B84D912021D3F800ACEF13 /* Info.plist */,
+				C29EC032217F0346000A238E /* Business Logic */,
+				C29EC031217F033A000A238E /* Entity */,
+				C29EC030217F0327000A238E /* Assembly */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -244,24 +275,9 @@
 			children = (
 				C2B84D8C2021D3F800ACEF13 /* Assets.xcassets */,
 				C2FB91A42153C953000A6EC0 /* data.json */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		C2FB91B12154E757000A6EC0 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				C2B84D892021D3F800ACEF13 /* Main.storyboard */,
 				C2B84D8E2021D3F800ACEF13 /* LaunchScreen.storyboard */,
 			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		C2FB91B22155072F000A6EC0 /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomView;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F7BD068B9BFDD67E3B51FB07 /* Pods */ = {
