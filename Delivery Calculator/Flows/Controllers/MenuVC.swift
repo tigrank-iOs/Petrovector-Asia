@@ -27,7 +27,7 @@ public class MenuVC: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-		self.view.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1)
+		self.view.backgroundColor = UIColor().brandBlue
 
 		if (UIApplication.shared.keyWindow?.bounds.size.width)! <= CGFloat(320.0) {
 			widthConstraint.constant = 104
@@ -46,7 +46,7 @@ public class MenuVC: UIViewController {
     }
 
 	func configureTableView() {
-		tableView.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1)
+		tableView.backgroundColor = UIColor().brandBlue
 		tableView.tableFooterView = UIView(frame: CGRect.zero)
 		tableView.isScrollEnabled = false
 	}
@@ -79,7 +79,7 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
 		let label = UILabel()
 		let text = NSAttributedString(string: "МЕНЮ", attributes: [.font: UIFont.boldSystemFont(ofSize: 30)])
 		label.attributedText = text
-		label.textColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1)
+		label.textColor = UIColor().brandBlue
 		label.frame = CGRect(x: 20, y: 5, width: 100, height: 45)
 		view.addSubview(label)
 

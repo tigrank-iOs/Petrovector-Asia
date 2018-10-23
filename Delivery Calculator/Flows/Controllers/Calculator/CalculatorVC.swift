@@ -209,17 +209,11 @@ extension CalculatorVC: UITextFieldDelegate {
 		outcomePrice.isHidden = true
 		outcomePriceTag.isHidden = true
 		if (textField.text?.isEmpty)! {
-			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0,
-														green: 122.0/255.0,
-														blue: 255.0/255.0,
-														alpha: 0.3)
+			calculationButton.backgroundColor = UIColor().brandLightBlue
 
 			calculationButton.isEnabled = false
 		} else {
-			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0,
-														green: 122.0/255.0,
-														blue: 255.0/255.0,
-														alpha: 1.0)
+			calculationButton.backgroundColor = UIColor().brandBlue
 
 			calculationButton.isEnabled = true
 		}
@@ -230,18 +224,12 @@ extension CalculatorVC: UITextFieldDelegate {
 				   replacementString string: String) -> Bool {
 
 		if (textField.text?.isEmpty)! {
-			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0,
-														green: 122.0/255.0,
-														blue: 255.0/255.0,
-														alpha: 0.3)
+			calculationButton.backgroundColor = UIColor().brandBlue
 
 			calculationButton.isEnabled = false
 			return true
 		} else {
-			calculationButton.backgroundColor = UIColor(displayP3Red: 0.0/255.0,
-														green: 122.0/255.0,
-														blue: 255.0/255.0,
-														alpha: 1.0)
+			calculationButton.backgroundColor = UIColor().brandBlue
 
 			calculationButton.isEnabled = true
 			return true
