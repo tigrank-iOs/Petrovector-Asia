@@ -40,7 +40,9 @@ public class NetworkManager {
 			let optDoubleRate = rate?.doubleValue
 
 			if let doubleRate = optDoubleRate {
-				completion(PriceCalculationModel(exchangeRate: doubleRate), strongSelf.errorMessage)
+				let model = PriceCalculationModel(exchangeRate: doubleRate)
+				CoreDataManager().save(model)
+				completion(model, strongSelf.errorMessage)
 			} else {
 				strongSelf.errorMessage += "Can`t load exchange rate\n"
 				if strongSelf.checkSavedValues() {

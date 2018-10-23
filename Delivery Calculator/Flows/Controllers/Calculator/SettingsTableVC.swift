@@ -31,6 +31,8 @@ class SettingsTableVC: UITableViewController {
 	// MARK: - VCLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		CoreDataManager().get()
 
 		let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
 		tableView.addGestureRecognizer(hideKeyboardGesture)

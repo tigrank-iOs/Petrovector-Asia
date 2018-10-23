@@ -23,6 +23,10 @@
 		C21CAD5621354AC200144979 /* ForecastReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CAD5521354AC200144979 /* ForecastReportVC.swift */; };
 		C21D2D992069188B00772B66 /* SettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21D2D982069188B00772B66 /* SettingsTableVC.swift */; };
 		C29EC03A217F14C4000A238E /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EC039217F14C3000A238E /* UIColorExt.swift */; };
+		C29EC03F217F4751000A238E /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C29EC03D217F4751000A238E /* DataModel.xcdatamodeld */; };
+		C29EC045217F48FC000A238E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EC044217F48FC000A238E /* CoreDataManager.swift */; };
+		C29EC04B217F5280000A238E /* CalculationModelMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EC04A217F527F000A238E /* CalculationModelMO+CoreDataClass.swift */; };
+		C29EC04D217F5281000A238E /* CalculationModelMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EC04C217F5281000A238E /* CalculationModelMO+CoreDataProperties.swift */; };
 		C2A10B69213021D1005E6777 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A10B68213021D1005E6777 /* LoginVC.swift */; };
 		C2B6871920345F50000D5CAB /* PriceCalculationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6871820345F50000D5CAB /* PriceCalculationModel.swift */; };
 		C2B84D862021D3F800ACEF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D852021D3F800ACEF13 /* AppDelegate.swift */; };
@@ -63,6 +67,10 @@
 		C21CAD5521354AC200144979 /* ForecastReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastReportVC.swift; sourceTree = "<group>"; };
 		C21D2D982069188B00772B66 /* SettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableVC.swift; sourceTree = "<group>"; };
 		C29EC039217F14C3000A238E /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		C29EC03E217F4751000A238E /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		C29EC044217F48FC000A238E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C29EC04A217F527F000A238E /* CalculationModelMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CalculationModelMO+CoreDataClass.swift"; path = "/Users/tigrankhachaturian/Desktop/iOS Petrovector/Delivery Calculator/Delivery Calculator/App/Entity/CalculationModelMO+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		C29EC04C217F5281000A238E /* CalculationModelMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CalculationModelMO+CoreDataProperties.swift"; path = "/Users/tigrankhachaturian/Desktop/iOS Petrovector/Delivery Calculator/Delivery Calculator/App/Entity/CalculationModelMO+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		C2A10B68213021D1005E6777 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C2B6871820345F50000D5CAB /* PriceCalculationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCalculationModel.swift; sourceTree = "<group>"; };
 		C2B84D822021D3F800ACEF13 /* Delivery Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Delivery Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +188,8 @@
 				C2DB1C042135584E008CA6FC /* CountModel.swift */,
 				C2FB919E2153A59F000A6EC0 /* ForecastModel.swift */,
 				C2FB91B5215508FB000A6EC0 /* User.swift */,
+				C29EC04A217F527F000A238E /* CalculationModelMO+CoreDataClass.swift */,
+				C29EC04C217F5281000A238E /* CalculationModelMO+CoreDataProperties.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -258,6 +268,7 @@
 				C2FB91A72153D23C000A6EC0 /* ForecastEngine.swift */,
 				C2DB1C0021354ED0008CA6FC /* DateConverter.swift */,
 				C2FB91B921551818000A6EC0 /* Constants.swift */,
+				C29EC044217F48FC000A238E /* CoreDataManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -279,6 +290,7 @@
 				C2B84D8C2021D3F800ACEF13 /* Assets.xcassets */,
 				C2FB91A42153C953000A6EC0 /* data.json */,
 				C2B84D8E2021D3F800ACEF13 /* LaunchScreen.storyboard */,
+				C29EC03D217F4751000A238E /* DataModel.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -408,9 +420,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2FB91B821550C29000A6EC0 /* NetworkManager.swift in Sources */,
+				C29EC04B217F5280000A238E /* CalculationModelMO+CoreDataClass.swift in Sources */,
 				C2B84D982021D4A700ACEF13 /* CalculatorVC.swift in Sources */,
 				C2DB1C052135584E008CA6FC /* CountModel.swift in Sources */,
 				C21CAD3E2133FE7800144979 /* PageVC.swift in Sources */,
+				C29EC04D217F5281000A238E /* CalculationModelMO+CoreDataProperties.swift in Sources */,
 				C204C41421300B67008C0EAC /* TextFieldExt.swift in Sources */,
 				C2FB91A82153D23C000A6EC0 /* ForecastEngine.swift in Sources */,
 				C2FB91AE2154E49B000A6EC0 /* PriceCalculationEngine.swift in Sources */,
@@ -428,6 +442,8 @@
 				C21CAD5221354A7B00144979 /* CountVC.swift in Sources */,
 				C21CAD47213404B600144979 /* StoryboardExt.swift in Sources */,
 				C2FB919F2153A59F000A6EC0 /* ForecastModel.swift in Sources */,
+				C29EC045217F48FC000A238E /* CoreDataManager.swift in Sources */,
+				C29EC03F217F4751000A238E /* DataModel.xcdatamodeld in Sources */,
 				C209DDE92136A94000246DF6 /* AZSTypesPopover.swift in Sources */,
 				C2B6871920345F50000D5CAB /* PriceCalculationModel.swift in Sources */,
 				C21CAD402134029500144979 /* MasterVC.swift in Sources */,
@@ -628,6 +644,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C29EC03D217F4751000A238E /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C29EC03E217F4751000A238E /* DataModel.xcdatamodel */,
+			);
+			currentVersion = C29EC03E217F4751000A238E /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C2B84D7A2021D3F800ACEF13 /* Project object */;
 }

@@ -10,6 +10,7 @@ import Foundation
 
 public struct PriceCalculationModel {
 
+	let id: Int16 = 1
     var exchangeRate: Double
     var petrolDuty: Double
     var dieselDuty: Double
