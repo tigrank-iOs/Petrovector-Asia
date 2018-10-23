@@ -15,7 +15,6 @@ enum MenuStatus {
 
 class MasterVC: UIViewController {
 
-	// Константы - вынести в отдельный класс
 	let pageContainerID = "PageContainer"
 	let centerPanelOffset: CGFloat = 80.0
 	var pageNC: PageNavigationController?

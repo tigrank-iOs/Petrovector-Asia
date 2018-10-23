@@ -23,7 +23,7 @@ class ForecastVC: PageVC {
 		tableView.dataSource = self
     }
 
-	// MARK: - Segue
+	// MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "showModel" {
 			let reportVC = segue.destination as! ForecastReportVC

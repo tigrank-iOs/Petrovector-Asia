@@ -44,35 +44,6 @@ class CountSaveVC: UIViewController {
 		setupLabels()
 	}
 
-	// MARK: - Actions
-	@IBAction func savePressed(_ sender: UIButton) {
-		let location = myPointAnnotation.coordinate
-		guard let type = azsType else {
-			showEmptyTypeAlert()
-			return
-		}
-		countModel.azsType = type
-		countModel.geoposition = location
-	}
-
-	@IBAction func dropDownPressed(_ sender: UIButton) {
-		guard let popVC = UIStoryboard.getViewController("popVC") as? AZSTypesPopover else { return }
-		popVC.modalPresentationStyle = .popover
-		popVC.delegate = self
-		let popoverVC = popVC.popoverPresentationController
-		popoverVC?.delegate = self
-		popoverVC?.sourceView = dropDownMenuButton
-		popoverVC?.sourceRect = CGRect(x: dropDownMenuButton.bounds.midX,
-									   y: dropDownMenuButton.bounds.midY + 44,
-									   width: 0,
-									   height: 0)
-
-		popoverVC?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
-		popVC.preferredContentSize = CGSize(width: dropDownMenuButton.bounds.width, height: 88)
-
-		self.present(popVC, animated: true)
-	}
-
 	// MARK: - Functions
 	fileprivate func setupMapView() {
 		mapView.delegate = self
@@ -106,8 +77,37 @@ class CountSaveVC: UIViewController {
 		alert.addAction(okAction)
 		self.present(alert, animated: true)
 	}
+	
+	// MARK: - Actions
+	@IBAction func savePressed(_ sender: UIButton) {
+		let location = myPointAnnotation.coordinate
+		guard let type = azsType else {
+			showEmptyTypeAlert()
+			return
+		}
+		countModel.azsType = type
+		countModel.geoposition = location
+	}
+	
+	@IBAction func dropDownPressed(_ sender: UIButton) {
+		guard let popVC = UIStoryboard.getViewController("popVC") as? AZSTypesPopover else { return }
+		popVC.modalPresentationStyle = .popover
+		popVC.delegate = self
+		let popoverVC = popVC.popoverPresentationController
+		popoverVC?.delegate = self
+		popoverVC?.sourceView = dropDownMenuButton
+		popoverVC?.sourceRect = CGRect(x: dropDownMenuButton.bounds.midX,
+									   y: dropDownMenuButton.bounds.midY + 44,
+									   width: 0,
+									   height: 0)
+		
+		popoverVC?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+		popVC.preferredContentSize = CGSize(width: dropDownMenuButton.bounds.width, height: 88)
+		
+		self.present(popVC, animated: true)
+	}
 
-	// MARK: - Segues
+	// MARK: - Navigation
 	override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
 		if identifier == "unwindSegue" {
 			if azsType == nil {
@@ -208,6 +208,8 @@ extension CountSaveVC: CLLocationManagerDelegate {
 }
 
 extension CountSaveVC: UIPopoverPresentationControllerDelegate {
+	
+	// MARK: - UIPopoverPresentationControllerDelegate
 	func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
 		return .none
 	}
@@ -215,6 +217,7 @@ extension CountSaveVC: UIPopoverPresentationControllerDelegate {
 
 extension CountSaveVC: AZSTypesPopoverDelegate {
 
+	// MARK: - AZSTypesPopoverDelegate
 	func didSelectType(_ type: AzsTypes) {
 		switch type {
 		case .city:

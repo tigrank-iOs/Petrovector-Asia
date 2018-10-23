@@ -8,12 +8,12 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+public class LoginVC: UIViewController {
 
 	@IBOutlet weak var login: UITextField!
 	@IBOutlet weak var password: UITextField!
 
-    override func viewDidLoad() {
+	override public func viewDidLoad() {
         super.viewDidLoad()
 
 		login.setBottomBorder()

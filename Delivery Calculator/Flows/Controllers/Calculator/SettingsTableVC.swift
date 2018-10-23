@@ -11,8 +11,10 @@ import SwiftyXMLParser
 
 class SettingsTableVC: UITableViewController {
 
-	var dataModel: PriceCalculationModel?
+	// MARK: - Variables
+	var dataModel: PriceCalculationModel!
 
+	// MARK: - Outlets
 	@IBOutlet weak var exchangeRate: UILabel!
 	@IBOutlet weak var petrolDuty: UITextField!
 	@IBOutlet weak var dieselDuty: UITextField!
@@ -26,34 +28,7 @@ class SettingsTableVC: UITableViewController {
 	@IBOutlet weak var density95: UITextField!
 	@IBOutlet weak var densityDT: UITextField!
 
-	@IBAction func saveButton(_ sender: Any) {
-		let userDefaults = UserDefaults.standard
-		userDefaults.set(dataModel?.exchangeRate, forKey: "rate")
-		userDefaults.set(petrolDuty.text?.doubleValue, forKey: "petrolDuty")
-		userDefaults.set(dieselDuty.text?.doubleValue, forKey: "dieselDuty")
-		userDefaults.set(ecologicalRate.text?.doubleValue, forKey: "ecologicalRate")
-		userDefaults.set(vat.text?.doubleValue, forKey: "vat")
-		userDefaults.set(railwayRate.text?.doubleValue, forKey: "railwayRate")
-		userDefaults.set(autoRate.text?.doubleValue, forKey: "autoRate")
-		userDefaults.set(elnurRate.text?.doubleValue, forKey: "elnurRate")
-		userDefaults.set(density80.text?.doubleValue, forKey: "density80")
-		userDefaults.set(density92.text?.doubleValue, forKey: "density92")
-		userDefaults.set(density95.text?.doubleValue, forKey: "density95")
-		userDefaults.set(densityDT.text?.doubleValue, forKey: "densityDT")
-
-		self.dataModel = PriceCalculationModel(storage: userDefaults)
-		let navigationVC = self.parent as! UINavigationController
-		let calculatorVC = navigationVC.viewControllers[0] as! CalculatorVC
-		calculatorVC.dataModel = dataModel
-
-		let alert = UIAlertController(title: "", message: "Настройки успешно сохранены", preferredStyle: .alert)
-		let action = UIAlertAction(title: "Ок", style: .default)
-		alert.addAction(action)
-		self.present(alert, animated: true)
-
-		hideKeyboard()
-	}
-
+	// MARK: - VCLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -82,26 +57,58 @@ class SettingsTableVC: UITableViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
-		exchangeRate.text = "\(dataModel!.exchangeRate!) KGS"
-		petrolDuty.text = "\(dataModel!.petrolDuty!)"
-		dieselDuty.text = "\(dataModel!.dieselDuty!)"
-		ecologicalRate.text = "\(dataModel!.ecologicalRate!)"
-		vat.text = "\(dataModel!.vat!)"
-		railwayRate.text = "\(dataModel!.railwayRate!)"
-		autoRate.text = "\(dataModel!.autoRate!)"
-		elnurRate.text = "\(dataModel!.elnurRate!)"
-		density80.text = "\(dataModel!.density80!)"
-		density92.text = "\(dataModel!.density92!)"
-		density95.text = "\(dataModel!.density95!)"
-		densityDT.text = "\(dataModel!.densityDT!)"
+		exchangeRate.text = "\(dataModel.exchangeRate) KGS"
+		petrolDuty.text = "\(dataModel.petrolDuty)"
+		dieselDuty.text = "\(dataModel.dieselDuty)"
+		ecologicalRate.text = "\(dataModel.ecologicalRate)"
+		vat.text = "\(dataModel.vat)"
+		railwayRate.text = "\(dataModel.railwayRate)"
+		autoRate.text = "\(dataModel.autoRate)"
+		elnurRate.text = "\(dataModel.elnurRate)"
+		density80.text = "\(dataModel.density80)"
+		density92.text = "\(dataModel.density92)"
+		density95.text = "\(dataModel.density95)"
+		densityDT.text = "\(dataModel.densityDT)"
 	}
 
+	// MARK: - OBJC Functions
 	@objc func hideKeyboard() {
 		self.tableView.endEditing(true)
+	}
+	
+	// MARK: - Actions
+	@IBAction func saveButton(_ sender: Any) {
+		let userDefaults = UserDefaults.standard
+		userDefaults.set(dataModel?.exchangeRate, forKey: "rate")
+		userDefaults.set(petrolDuty.text?.doubleValue, forKey: "petrolDuty")
+		userDefaults.set(dieselDuty.text?.doubleValue, forKey: "dieselDuty")
+		userDefaults.set(ecologicalRate.text?.doubleValue, forKey: "ecologicalRate")
+		userDefaults.set(vat.text?.doubleValue, forKey: "vat")
+		userDefaults.set(railwayRate.text?.doubleValue, forKey: "railwayRate")
+		userDefaults.set(autoRate.text?.doubleValue, forKey: "autoRate")
+		userDefaults.set(elnurRate.text?.doubleValue, forKey: "elnurRate")
+		userDefaults.set(density80.text?.doubleValue, forKey: "density80")
+		userDefaults.set(density92.text?.doubleValue, forKey: "density92")
+		userDefaults.set(density95.text?.doubleValue, forKey: "density95")
+		userDefaults.set(densityDT.text?.doubleValue, forKey: "densityDT")
+		
+		self.dataModel = PriceCalculationModel(storage: userDefaults)
+		let navigationVC = self.parent as! UINavigationController
+		let calculatorVC = navigationVC.viewControllers[0] as! CalculatorVC
+		calculatorVC.dataModel = dataModel
+		
+		let alert = UIAlertController(title: "", message: "Настройки успешно сохранены", preferredStyle: .alert)
+		let action = UIAlertAction(title: "Ок", style: .default)
+		alert.addAction(action)
+		self.present(alert, animated: true)
+		
+		hideKeyboard()
 	}
 }
 
 extension SettingsTableVC: UITextFieldDelegate {
+	
+	// MARK: - UITextFieldDelegate
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		let textFields = [petrolDuty,
 						  dieselDuty,

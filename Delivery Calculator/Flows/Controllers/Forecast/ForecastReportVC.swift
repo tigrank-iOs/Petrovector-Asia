@@ -10,12 +10,14 @@ import UIKit
 
 class ForecastReportVC: UIViewController {
 
+	// MARK: - Variables
 	var countModel: CountModel! {
 		didSet {
 
 		}
 	}
 
+	// MARK: - VCLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +28,7 @@ class ForecastReportVC: UIViewController {
 											   object: nil)
     }
 
+	// MARK: - OBJC Functions
 	@objc func calculate() {
 		ForecastEngine().makeForecast(for: countModel)
 	}

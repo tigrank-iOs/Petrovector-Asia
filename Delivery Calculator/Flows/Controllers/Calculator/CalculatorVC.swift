@@ -28,6 +28,7 @@ class CalculatorVC: PageVC {
     @IBOutlet weak var calculatorScrollView: UIScrollView!
 	@IBOutlet weak var calculationButton: UIButton!
 
+	// MARK: - VCLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -78,6 +79,7 @@ class CalculatorVC: PageVC {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
+	// MARK: - OBJC Functions
 	@objc func keyboardWasShown(notification: Notification) {
 		let info = notification.userInfo! as NSDictionary
 		let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
@@ -130,7 +132,13 @@ class CalculatorVC: PageVC {
 			incomePrice.becomeFirstResponder()
 		}
 	}
+	
+	override func menuTapped() {
+		super.menuTapped()
+		self.hideKeyboard()
+	}
 
+	// MARK: - Actions
 	@IBAction func calculationPressed(_ sender: Any) {
 		guard let model = dataModel else {
 			print("No dataModel received")
@@ -149,6 +157,7 @@ class CalculatorVC: PageVC {
 		}
 	}
 
+	// MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToSettingsVC" {
             let settingVC = segue.destination as! SettingsTableVC
@@ -158,6 +167,8 @@ class CalculatorVC: PageVC {
 }
 
 extension CalculatorVC: UIPickerViewDataSource, UIPickerViewDelegate {
+	
+	// MARK: - UIPickerViewDataSource
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1
 	}
@@ -170,6 +181,7 @@ extension CalculatorVC: UIPickerViewDataSource, UIPickerViewDelegate {
 		return self.pickerData[row]
 	}
 
+	// MARK: - UIPickerViewDelegate
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		switch row {
 		case 0:
@@ -185,6 +197,8 @@ extension CalculatorVC: UIPickerViewDataSource, UIPickerViewDelegate {
 }
 
 extension CalculatorVC: UITextFieldDelegate {
+	
+	// MARK: - UITextFieldDelegate
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		self.calculationPressed(self)
 		return true

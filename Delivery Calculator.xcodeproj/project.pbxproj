@@ -194,7 +194,6 @@
 				C24917AD2057E0160039C232 /* Controllers */,
 				C21CAD422134041900144979 /* SlideOutMenu */,
 				C209DDEA2136A94400246DF6 /* Popover */,
-				C29EC036217F0749000A238E /* CustomViews */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -215,13 +214,6 @@
 				C2FB91A62153D228000A6EC0 /* Helpers */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		C29EC036217F0749000A238E /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		C2B84D792021D3F800ACEF13 = {

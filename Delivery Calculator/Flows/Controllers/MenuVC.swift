@@ -8,22 +8,23 @@
 
 import UIKit
 
-class MenuVC: UIViewController {
+public class MenuVC: UIViewController {
 
 	// MARK: - Variables
 	weak var changePageDelegate: PageForMenuDelegate?
 
-	let buttonNames = ["Калькулятор", "Расчет пролива"]
+	private let buttonNames = ["Калькулятор", "Расчет пролива"]
 
 	// MARK: - Outlets
-	@IBOutlet weak var avatar: UIImageView!
-	@IBOutlet weak var nameLabel: UILabel!
-	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak private var avatar: UIImageView!
+	@IBOutlet weak private var nameLabel: UILabel!
+	@IBOutlet weak private var tableView: UITableView!
 
-	@IBOutlet weak var widthConstraint: NSLayoutConstraint!
-	@IBOutlet weak var heightConstraint: NSLayoutConstraint!
+	@IBOutlet weak private var widthConstraint: NSLayoutConstraint!
+	@IBOutlet weak private var heightConstraint: NSLayoutConstraint!
 
-    override func viewDidLoad() {
+	// MARK: - VCLifeCycle
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
 		self.view.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1)
@@ -55,23 +56,23 @@ class MenuVC: UIViewController {
 extension MenuVC: UITableViewDelegate, UITableViewDataSource {
 
 	// MARK: - UITableViewDataSource
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return buttonNames.count
 	}
 
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath)
 		cell.textLabel?.text = buttonNames[indexPath.row]
 		return cell
 	}
 
 	// MARK: - UITableViewDelegate
-	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+	public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		cell.textLabel?.textColor = UIColor.white
 		cell.backgroundColor = .clear
 	}
 
-	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+	public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView()
 		view.backgroundColor = .white
 
@@ -85,11 +86,11 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
 		return view
 	}
 
-	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+	public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		return 60
 	}
 
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		switch indexPath.row {
 		case 0:
 			changePageDelegate?.changePage(to: "CalculatorVC")

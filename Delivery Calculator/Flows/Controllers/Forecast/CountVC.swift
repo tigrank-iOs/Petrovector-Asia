@@ -160,6 +160,7 @@ class CountVC: UIViewController {
 		self.view.endEditing(true)
 	}
 
+	// MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "saveCount" {
 			let destVC = segue.destination as! CountSaveVC

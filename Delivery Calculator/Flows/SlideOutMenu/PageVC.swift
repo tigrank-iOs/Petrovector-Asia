@@ -8,11 +8,11 @@
 
 import UIKit
 
-class PageVC: UIViewController {
+public class PageVC: UIViewController {
 
 	weak var delegate: PageForMenuDelegate?
 
-    override func viewDidLoad() {
+	override public func viewDidLoad() {
         super.viewDidLoad()
 
 		let menuBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"),

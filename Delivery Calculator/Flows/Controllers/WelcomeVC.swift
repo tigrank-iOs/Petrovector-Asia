@@ -8,11 +8,11 @@
 
 import UIKit
 
-class WelcomeVC: PageVC {
+public class WelcomeVC: PageVC {
 
 	@IBOutlet weak var greetingLabel: UILabel!
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -20,7 +20,7 @@ class WelcomeVC: PageVC {
 
 		greetingLabel.text = "Добро пожаловать, \(User().firstName)"
 
-		let delay = DispatchTime.now() + .seconds(1)
+		let delay = DispatchTime.now() + .milliseconds(500)
 		DispatchQueue.main.asyncAfter(deadline: delay) { [weak self] in
 			self?.menuTapped()
 		}
