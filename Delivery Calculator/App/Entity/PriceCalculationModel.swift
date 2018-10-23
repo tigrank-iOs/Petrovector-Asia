@@ -10,18 +10,18 @@ import Foundation
 
 public struct PriceCalculationModel {
 
-    var exchangeRate: Double?
-    var petrolDuty: Double?
-    var dieselDuty: Double?
-    var ecologicalRate: Double?
-    var vat: Double?
-    var railwayRate: Double?
-    var autoRate: Double?
-    var elnurRate: Double?
-    var density80: Double?
-    var density92: Double?
-    var density95: Double?
-    var densityDT: Double?
+    var exchangeRate: Double
+    var petrolDuty: Double
+    var dieselDuty: Double
+    var ecologicalRate: Double
+    var vat: Double
+    var railwayRate: Double
+    var autoRate: Double
+    var elnurRate: Double
+    var density80: Double
+    var density92: Double
+    var density95: Double
+    var densityDT: Double
 
     init(storage: UserDefaults) {
         self.exchangeRate = storage.double(forKey: "rate")
