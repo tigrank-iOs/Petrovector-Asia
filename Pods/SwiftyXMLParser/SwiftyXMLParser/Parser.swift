@@ -22,8 +22,6 @@
  * THE SOFTWARE.
  */
 
-// swiftlint:disable all
-
 import Foundation
 
 extension XML {
@@ -36,33 +34,33 @@ extension XML {
             parser.parse()
             return Accessor(documentRoot)
         }
-
+        
         override init() {
             trimmingManner = nil
         }
-
+        
         init(trimming manner: CharacterSet) {
             trimmingManner = manner
         }
-
-        // MARK: - private
+        
+        // MARK:- private
         fileprivate var documentRoot = Element(name: "XML.Parser.AbstructedDocumentRoot")
         fileprivate var stack = [Element]()
         fileprivate let trimmingManner: CharacterSet?
-
-        func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String]) {
+        
+        func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
             let node = Element(name: elementName)
             if !attributeDict.isEmpty {
                 node.attributes = attributeDict
             }
-
+            
             let parentNode = stack.last
-
+            
             node.parentElement = parentNode
             parentNode?.childElements.append(node)
             stack.append(node)
         }
-
+        
         func parser(_ parser: XMLParser, foundCharacters string: String) {
             if let text = stack.last?.text {
                 stack.last?.text = text + string
@@ -70,7 +68,7 @@ extension XML {
                 stack.last?.text = "" + string
             }
         }
-
+        
         func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
             if let trimmingManner = self.trimmingManner {
                 stack.last?.text = stack.last?.text?.trimmingCharacters(in: trimmingManner)

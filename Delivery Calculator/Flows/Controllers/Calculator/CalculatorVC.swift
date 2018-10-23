@@ -5,7 +5,6 @@
 //  Created by Тигран on 31.01.2018.
 //  Copyright © 2018 PetrovectorGroup. All rights reserved.
 //
-// swiftlint:disable force_cast vertical_parameter_alignment
 
 import UIKit
 

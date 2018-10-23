@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-// swiftlint:disable all
 
 import Foundation
 
@@ -51,6 +50,7 @@ public func ?<< <T>(lhs: inout [T], rhs: T?) {
         lhs.append(unwrappedRhs)
     }
 }
+
 
 /**
  Director class to parse and access XML document. 
@@ -95,7 +95,7 @@ open class XML {
     open class func parse(_ data: Data) -> Accessor {
         return Parser().parse(data)
     }
-
+    
     /**
      Interface to parse String
      
@@ -106,10 +106,10 @@ open class XML {
         guard let data = str.data(using: String.Encoding.utf8) else {
             throw XMLError.parseError
         }
-
+        
         return Parser().parse(data)
     }
-
+    
     /**
      Interface to parse NSData
      
@@ -120,7 +120,7 @@ open class XML {
     open class func parse(_ data: Data, trimming manner: CharacterSet) -> Accessor {
         return Parser(trimming: manner).parse(data)
     }
-
+    
     /**
      Interface to parse String
      
@@ -132,7 +132,7 @@ open class XML {
         guard let data = str.data(using: String.Encoding.utf8) else {
             throw XMLError.parseError
         }
-
+        
         return Parser(trimming: manner).parse(data)
     }
 }

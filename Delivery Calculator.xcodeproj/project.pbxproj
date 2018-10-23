@@ -194,6 +194,7 @@
 				C24917AD2057E0160039C232 /* Controllers */,
 				C21CAD422134041900144979 /* SlideOutMenu */,
 				C209DDEA2136A94400246DF6 /* Popover */,
+				C29EC036217F0749000A238E /* CustomViews */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -214,6 +215,13 @@
 				C2FB91A62153D228000A6EC0 /* Helpers */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		C29EC036217F0749000A238E /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		C2B84D792021D3F800ACEF13 = {
@@ -301,7 +309,6 @@
 				C2B84D7F2021D3F800ACEF13 /* Frameworks */,
 				C2B84D802021D3F800ACEF13 /* Resources */,
 				9DDE587BCCEF1F7A0C1EE6BF /* [CP] Embed Pods Frameworks */,
-				C2FB91AC2154D2C6000A6EC0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -401,23 +408,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Delivery Calculator/Pods-Delivery Calculator-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		C2FB91AC2154D2C6000A6EC0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -597,7 +587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FAZLBWG687;
-				INFOPLIST_FILE = "$(SRCROOT)/Delivery Calculator/App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Delivery Calculator/Environments/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.petrovectorgroup.Delivery-Calculator";
@@ -614,7 +604,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FAZLBWG687;
-				INFOPLIST_FILE = "$(SRCROOT)/Delivery Calculator/App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Delivery Calculator/Environments/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.petrovectorgroup.Delivery-Calculator";

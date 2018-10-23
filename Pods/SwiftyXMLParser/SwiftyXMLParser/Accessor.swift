@@ -21,12 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-// swiftlint:disable all
 
 import Foundation
 
 extension XML {
-
+    
     /**
      Class for accessing XML Document as SequenceType.
      
@@ -45,23 +44,24 @@ extension XML {
         case singleElement(Element)
         case sequence([Element])
         case failure(Error)
-
+        
         public init(_ element: Element) {
             self = .singleElement(element)
         }
-
+        
         public init(_ sequence: [Element]) {
             self = .sequence(sequence)
         }
-
+        
         public init(_ error: Error) {
             self = .failure(error)
         }
-
+        
+        
         public subscript(dynamicMember member: String) -> XML.Accessor {
             return self[member]
         }
-
+        
         /**
          If Accessor object has a correct XML path, return XML element, otherwith return error
          
@@ -101,7 +101,7 @@ extension XML {
             }
             return accessor
         }
-
+        
         /**
          If Accessor object has a correct XML path, return XML element, otherwith return error
          
@@ -139,7 +139,7 @@ extension XML {
                 }
             case .failure(let error):
                 accessor =  Accessor(error)
-            case .sequence:
+            case .sequence(_):
                 fallthrough
             default:
                 let error = accessError("cannot access \(key), because of multiple elements")
@@ -148,7 +148,7 @@ extension XML {
             }
             return accessor
         }
-
+        
         /**
          If Accessor object has a correct XML path, return XML element, otherwith return error
          
@@ -184,7 +184,7 @@ extension XML {
             }
             return accessor
         }
-
+        
         /**
          If Accessor object has a correct XML path, return XML element, otherwith return error
          
@@ -221,13 +221,13 @@ extension XML {
             }
             return accessor
         }
-
+        
         public var name: String? {
             let name: String?
             switch self {
             case .singleElement(let element):
                 name = element.name
-            case .failure, .sequence:
+            case .failure(_), .sequence(_):
                 fallthrough
             default:
                 name = nil
@@ -235,13 +235,13 @@ extension XML {
             }
             return name
         }
-
+        
         public var text: String? {
             let text: String?
             switch self {
             case .singleElement(let element):
                 text = element.text
-            case .failure, .sequence:
+            case .failure(_), .sequence(_):
                 fallthrough
             default:
                 text = nil
@@ -249,34 +249,36 @@ extension XML {
             }
             return text
         }
-
+        
+        
         /// syntax sugar to access Bool Text
         public var bool: Bool? {
             return text.flatMap { $0 == "true" }
         }
-
+        
+        
         /// syntax sugar to access URL Text
         public var url: URL? {
             return text.flatMap({URL(string: $0)})
         }
-
+        
         /// syntax sugar to access Int Text
         public var int: Int? {
             return text.flatMap({Int($0)})
         }
-
+        
         /// syntax sugar to access Double Text
         public var double: Double? {
             return text.flatMap({Double($0)})
         }
-
+        
         /// access to XML Attributes
         public var attributes: [String: String] {
             let attributes: [String: String]
             switch self {
             case .singleElement(let element):
                 attributes = element.attributes
-            case .failure, .sequence:
+            case .failure(_), .sequence(_):
                 fallthrough
             default:
                 attributes = [String: String]()
@@ -284,7 +286,7 @@ extension XML {
             }
             return attributes
         }
-
+        
         /// access to child Elements
         public var all: [Element]? {
             switch self {
@@ -292,11 +294,11 @@ extension XML {
                 return [element]
             case .sequence(let elements):
                 return elements
-            case .failure:
+            case .failure(_):
                 return nil
             }
         }
-
+        
         /// access to child Elemnet Tag Names
         public var names: [String]? {
             switch self {
@@ -304,31 +306,32 @@ extension XML {
                 return [element.name]
             case .sequence(let elements):
                 return elements.map { $0.name }
-            case .failure:
+            case .failure(_):
                 return nil
             }
         }
-
+        
         /// if it has wrong XML path, return Error, otherwise return nil
         public var error: Error? {
             switch self {
             case .failure(let error):
                 return error
-            case .singleElement, .sequence:
+            case .singleElement(_), .sequence(_):
                 return nil
             }
         }
-
+        
+        
         /// if it has wrong XML path or multiple child elements, return nil, otherwise return Element
         public var element: Element? {
             switch self {
             case .singleElement(let element):
                 return element
-            case .failure, .sequence:
+            case .failure(_), .sequence(_):
                 return nil
             }
         }
-
+        
         /// if it has wrong XML path or no child Element, return nil, otherwise return last Element
         public var last: Accessor {
             switch self {
@@ -344,7 +347,7 @@ extension XML {
                 return Accessor(error)
             }
         }
-
+        
         /// if it has wrong XML path or no child Element, return nil, otherwise return first Element
         public var first: Accessor {
             switch self {
@@ -360,7 +363,7 @@ extension XML {
                 return Accessor(error)
             }
         }
-
+        
         public func map<T>(_ transform: (Accessor) -> T) -> [T] {
             switch self {
             case .singleElement(let element):
@@ -393,12 +396,12 @@ extension XML {
             }
         }
 
-        // MARK:- SequenceType
-
+        // MARK :- SequenceType
+        
         public func makeIterator() -> AnyIterator<Accessor> {
             let generator: [XML.Element]
             switch self {
-            case .failure:
+            case .failure(_):
                 generator = []
             case .singleElement(let element):
                 generator = [element]
@@ -417,9 +420,10 @@ extension XML {
                 return nextAccessor
             }
         }
-
+        
+        
         // MARK: - CustomStringConvertible
-
+        
         public var description: String {
             switch self {
             case .singleElement(let element):
@@ -431,7 +435,7 @@ extension XML {
                 return "\(error)"
             }
         }
-
+        
         fileprivate func recursivePrintAncient(_ element: Element) -> String {
             var description = element.name
             if let unwrappedParent = element.parentElement {
@@ -439,7 +443,7 @@ extension XML {
             }
             return description
         }
-
+        
         fileprivate func accessError(_ description: String) -> Error {
             return XMLError.accessError(description: description)
         }

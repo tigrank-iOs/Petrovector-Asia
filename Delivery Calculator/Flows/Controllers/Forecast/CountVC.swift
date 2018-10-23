@@ -5,7 +5,6 @@
 //  Created by Тигран on 28/08/2018.
 //  Copyright © 2018 PetrovectorGroup. All rights reserved.
 //
-// swiftlint:disable force_cast
 
 import UIKit
 
