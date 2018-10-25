@@ -12,7 +12,7 @@ struct PriceCalculationEngine {
 	
 	func calculateBasePrice(withBorderPrice price: String?,
 							petrol: String,
-							forModel model: PriceCalculationModel) -> String {
+							forModel model: CalculationModel) -> String {
 		guard let priceUSD = price?.doubleValue else {
 			return "Вы ввели недопустимую стоимость топлива"
 		}
@@ -44,7 +44,7 @@ struct PriceCalculationEngine {
 		return "\(totalPrice) сом"
 	}
 	
-	func calculateBorderPrice(withBasePrice price: String?, petrol: String, forModel model: PriceCalculationModel) -> String {
+	func calculateBorderPrice(withBasePrice price: String?, petrol: String, forModel model: CalculationModel) -> String {
 		guard let priceKGS = price?.doubleValue else {
 			return "Вы ввели недопустимую стоимость топлива"
 		}

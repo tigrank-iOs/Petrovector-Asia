@@ -11,6 +11,15 @@
 		C204C41421300B67008C0EAC /* TextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204C41321300B67008C0EAC /* TextFieldExt.swift */; };
 		C209DDE92136A94000246DF6 /* AZSTypesPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = C209DDE82136A94000246DF6 /* AZSTypesPopover.swift */; };
 		C210D02721302DD300C73F4C /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210D02621302DD300C73F4C /* MenuVC.swift */; };
+		C21BFEC72181EE6C00008BAE /* Forecast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BFEC32181EE6C00008BAE /* Forecast+CoreDataProperties.swift */; };
+		C21BFEC82181EE6C00008BAE /* CountModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BFEC42181EE6C00008BAE /* CountModel+CoreDataProperties.swift */; };
+		C21BFEC92181EE6C00008BAE /* CountModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BFEC52181EE6C00008BAE /* CountModel+CoreDataClass.swift */; };
+		C21BFECA2181EE6C00008BAE /* Forecast+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BFEC62181EE6C00008BAE /* Forecast+CoreDataClass.swift */; };
+		C21C92882180D0EC00E6CF5F /* CalculationModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C92862180D0EB00E6CF5F /* CalculationModel+CoreDataProperties.swift */; };
+		C21C92892180D0EC00E6CF5F /* CalculationModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C92872180D0EC00E6CF5F /* CalculationModel+CoreDataClass.swift */; };
+		C21C92D32181CC8D00E6CF5F /* Fuels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C92D22181CC8D00E6CF5F /* Fuels.swift */; };
+		C21C92D92181DCDE00E6CF5F /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C21C92D82181DCDE00E6CF5F /* data.json */; };
+		C21C92E32181E7D000E6CF5F /* StationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C92E22181E7D000E6CF5F /* StationTypes.swift */; };
 		C21CAD3C2133FCE300144979 /* PageForMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CAD3B2133FCE300144979 /* PageForMenuDelegate.swift */; };
 		C21CAD3E2133FE7800144979 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CAD3D2133FE7800144979 /* PageVC.swift */; };
 		C21CAD402134029500144979 /* MasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CAD3F2134029500144979 /* MasterVC.swift */; };
@@ -25,20 +34,15 @@
 		C29EC03A217F14C4000A238E /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EC039217F14C3000A238E /* UIColorExt.swift */; };
 		C29EC03F217F4751000A238E /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C29EC03D217F4751000A238E /* DataModel.xcdatamodeld */; };
 		C29EC045217F48FC000A238E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EC044217F48FC000A238E /* CoreDataManager.swift */; };
-		C29EC04B217F5280000A238E /* CalculationModelMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EC04A217F527F000A238E /* CalculationModelMO+CoreDataClass.swift */; };
-		C29EC04D217F5281000A238E /* CalculationModelMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EC04C217F5281000A238E /* CalculationModelMO+CoreDataProperties.swift */; };
 		C2A10B69213021D1005E6777 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A10B68213021D1005E6777 /* LoginVC.swift */; };
-		C2B6871920345F50000D5CAB /* PriceCalculationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6871820345F50000D5CAB /* PriceCalculationModel.swift */; };
 		C2B84D862021D3F800ACEF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D852021D3F800ACEF13 /* AppDelegate.swift */; };
 		C2B84D8B2021D3F800ACEF13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D892021D3F800ACEF13 /* Main.storyboard */; };
 		C2B84D8D2021D3F800ACEF13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D8C2021D3F800ACEF13 /* Assets.xcassets */; };
 		C2B84D902021D3F800ACEF13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D8E2021D3F800ACEF13 /* LaunchScreen.storyboard */; };
 		C2B84D982021D4A700ACEF13 /* CalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */; };
 		C2DB1C0121354ED0008CA6FC /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DB1C0021354ED0008CA6FC /* DateConverter.swift */; };
-		C2DB1C052135584E008CA6FC /* CountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DB1C042135584E008CA6FC /* CountModel.swift */; };
 		C2FB919D2153A255000A6EC0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB919C2153A255000A6EC0 /* DataManager.swift */; };
-		C2FB919F2153A59F000A6EC0 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB919E2153A59F000A6EC0 /* ForecastModel.swift */; };
-		C2FB91A52153C953000A6EC0 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C2FB91A42153C953000A6EC0 /* data.json */; };
+		C2FB919F2153A59F000A6EC0 /* StatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB919E2153A59F000A6EC0 /* StatisticsModel.swift */; };
 		C2FB91A82153D23C000A6EC0 /* ForecastEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB91A72153D23C000A6EC0 /* ForecastEngine.swift */; };
 		C2FB91AE2154E49B000A6EC0 /* PriceCalculationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB91AD2154E49B000A6EC0 /* PriceCalculationEngine.swift */; };
 		C2FB91B6215508FB000A6EC0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB91B5215508FB000A6EC0 /* User.swift */; };
@@ -55,6 +59,15 @@
 		C204C41321300B67008C0EAC /* TextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExt.swift; sourceTree = "<group>"; };
 		C209DDE82136A94000246DF6 /* AZSTypesPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZSTypesPopover.swift; sourceTree = "<group>"; };
 		C210D02621302DD300C73F4C /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		C21BFEC32181EE6C00008BAE /* Forecast+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Forecast+CoreDataProperties.swift"; path = "/Users/tigrankhachaturian/Desktop/iOS Petrovector/Delivery Calculator/Delivery Calculator/App/Entity/Forecast+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		C21BFEC42181EE6C00008BAE /* CountModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CountModel+CoreDataProperties.swift"; path = "/Users/tigrankhachaturian/Desktop/iOS Petrovector/Delivery Calculator/Delivery Calculator/App/Entity/CountModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		C21BFEC52181EE6C00008BAE /* CountModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CountModel+CoreDataClass.swift"; path = "/Users/tigrankhachaturian/Desktop/iOS Petrovector/Delivery Calculator/Delivery Calculator/App/Entity/CountModel+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		C21BFEC62181EE6C00008BAE /* Forecast+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Forecast+CoreDataClass.swift"; path = "/Users/tigrankhachaturian/Desktop/iOS Petrovector/Delivery Calculator/Delivery Calculator/App/Entity/Forecast+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		C21C92862180D0EB00E6CF5F /* CalculationModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CalculationModel+CoreDataProperties.swift"; path = "/Users/tigrankhachaturian/Desktop/iOS Petrovector/Delivery Calculator/Delivery Calculator/App/Entity/CalculationModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		C21C92872180D0EC00E6CF5F /* CalculationModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CalculationModel+CoreDataClass.swift"; path = "/Users/tigrankhachaturian/Desktop/iOS Petrovector/Delivery Calculator/Delivery Calculator/App/Entity/CalculationModel+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		C21C92D22181CC8D00E6CF5F /* Fuels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fuels.swift; sourceTree = "<group>"; };
+		C21C92D82181DCDE00E6CF5F /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		C21C92E22181E7D000E6CF5F /* StationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTypes.swift; sourceTree = "<group>"; };
 		C21CAD3B2133FCE300144979 /* PageForMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageForMenuDelegate.swift; sourceTree = "<group>"; };
 		C21CAD3D2133FE7800144979 /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
 		C21CAD3F2134029500144979 /* MasterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterVC.swift; sourceTree = "<group>"; };
@@ -69,10 +82,7 @@
 		C29EC039217F14C3000A238E /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		C29EC03E217F4751000A238E /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		C29EC044217F48FC000A238E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		C29EC04A217F527F000A238E /* CalculationModelMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CalculationModelMO+CoreDataClass.swift"; path = "/Users/tigrankhachaturian/Desktop/iOS Petrovector/Delivery Calculator/Delivery Calculator/App/Entity/CalculationModelMO+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		C29EC04C217F5281000A238E /* CalculationModelMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CalculationModelMO+CoreDataProperties.swift"; path = "/Users/tigrankhachaturian/Desktop/iOS Petrovector/Delivery Calculator/Delivery Calculator/App/Entity/CalculationModelMO+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		C2A10B68213021D1005E6777 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		C2B6871820345F50000D5CAB /* PriceCalculationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCalculationModel.swift; sourceTree = "<group>"; };
 		C2B84D822021D3F800ACEF13 /* Delivery Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Delivery Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B84D852021D3F800ACEF13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2B84D8A2021D3F800ACEF13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,10 +91,8 @@
 		C2B84D912021D3F800ACEF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorVC.swift; sourceTree = "<group>"; };
 		C2DB1C0021354ED0008CA6FC /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
-		C2DB1C042135584E008CA6FC /* CountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountModel.swift; sourceTree = "<group>"; };
 		C2FB919C2153A255000A6EC0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		C2FB919E2153A59F000A6EC0 /* ForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
-		C2FB91A42153C953000A6EC0 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		C2FB919E2153A59F000A6EC0 /* StatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModel.swift; sourceTree = "<group>"; };
 		C2FB91A72153D23C000A6EC0 /* ForecastEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastEngine.swift; sourceTree = "<group>"; };
 		C2FB91AD2154E49B000A6EC0 /* PriceCalculationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCalculationEngine.swift; sourceTree = "<group>"; };
 		C2FB91B5215508FB000A6EC0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -131,6 +139,15 @@
 			path = Popover;
 			sourceTree = "<group>";
 		};
+		C21C9285218079D700E6CF5F /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C2FB91AD2154E49B000A6EC0 /* PriceCalculationEngine.swift */,
+				C2FB91A72153D23C000A6EC0 /* ForecastEngine.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
 		C21CAD422134041900144979 /* SlideOutMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,31 +191,19 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		C29EC030217F0327000A238E /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
 		C29EC031217F033A000A238E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				C2B6871820345F50000D5CAB /* PriceCalculationModel.swift */,
-				C2DB1C042135584E008CA6FC /* CountModel.swift */,
-				C2FB919E2153A59F000A6EC0 /* ForecastModel.swift */,
 				C2FB91B5215508FB000A6EC0 /* User.swift */,
-				C29EC04A217F527F000A238E /* CalculationModelMO+CoreDataClass.swift */,
-				C29EC04C217F5281000A238E /* CalculationModelMO+CoreDataProperties.swift */,
+				C2FB919E2153A59F000A6EC0 /* StatisticsModel.swift */,
+				C21C92872180D0EC00E6CF5F /* CalculationModel+CoreDataClass.swift */,
+				C21C92862180D0EB00E6CF5F /* CalculationModel+CoreDataProperties.swift */,
+				C21BFEC62181EE6C00008BAE /* Forecast+CoreDataClass.swift */,
+				C21BFEC32181EE6C00008BAE /* Forecast+CoreDataProperties.swift */,
+				C21BFEC52181EE6C00008BAE /* CountModel+CoreDataClass.swift */,
+				C21BFEC42181EE6C00008BAE /* CountModel+CoreDataProperties.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		C29EC032217F0346000A238E /* Business Logic */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Business Logic";
 			sourceTree = "<group>";
 		};
 		C29EC033217F0359000A238E /* Flows */ = {
@@ -251,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				C2FB91AF2154E721000A6EC0 /* App */,
-				C29EC033217F0359000A238E /* Flows */,
 				C29EC035217F036B000A238E /* Core */,
 				C2FB91B02154E743000A6EC0 /* Resources */,
 				C29EC034217F0361000A238E /* Environments */,
@@ -264,11 +268,11 @@
 			children = (
 				C2FB91B721550C29000A6EC0 /* NetworkManager.swift */,
 				C2FB919C2153A255000A6EC0 /* DataManager.swift */,
-				C2FB91AD2154E49B000A6EC0 /* PriceCalculationEngine.swift */,
-				C2FB91A72153D23C000A6EC0 /* ForecastEngine.swift */,
 				C2DB1C0021354ED0008CA6FC /* DateConverter.swift */,
 				C2FB91B921551818000A6EC0 /* Constants.swift */,
 				C29EC044217F48FC000A238E /* CoreDataManager.swift */,
+				C21C92D22181CC8D00E6CF5F /* Fuels.swift */,
+				C21C92E22181E7D000E6CF5F /* StationTypes.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -277,9 +281,9 @@
 			isa = PBXGroup;
 			children = (
 				C2B84D852021D3F800ACEF13 /* AppDelegate.swift */,
-				C29EC032217F0346000A238E /* Business Logic */,
 				C29EC031217F033A000A238E /* Entity */,
-				C29EC030217F0327000A238E /* Assembly */,
+				C21C9285218079D700E6CF5F /* Business Logic */,
+				C29EC033217F0359000A238E /* Flows */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -288,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				C2B84D8C2021D3F800ACEF13 /* Assets.xcassets */,
-				C2FB91A42153C953000A6EC0 /* data.json */,
+				C21C92D82181DCDE00E6CF5F /* data.json */,
 				C2B84D8E2021D3F800ACEF13 /* LaunchScreen.storyboard */,
 				C29EC03D217F4751000A238E /* DataModel.xcdatamodeld */,
 			);
@@ -366,10 +370,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2FB91A52153C953000A6EC0 /* data.json in Resources */,
 				C2B84D902021D3F800ACEF13 /* LaunchScreen.storyboard in Resources */,
 				C2B84D8D2021D3F800ACEF13 /* Assets.xcassets in Resources */,
 				C2B84D8B2021D3F800ACEF13 /* Main.storyboard in Resources */,
+				C21C92D92181DCDE00E6CF5F /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,38 +424,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2FB91B821550C29000A6EC0 /* NetworkManager.swift in Sources */,
-				C29EC04B217F5280000A238E /* CalculationModelMO+CoreDataClass.swift in Sources */,
 				C2B84D982021D4A700ACEF13 /* CalculatorVC.swift in Sources */,
-				C2DB1C052135584E008CA6FC /* CountModel.swift in Sources */,
 				C21CAD3E2133FE7800144979 /* PageVC.swift in Sources */,
-				C29EC04D217F5281000A238E /* CalculationModelMO+CoreDataProperties.swift in Sources */,
+				C21C92E32181E7D000E6CF5F /* StationTypes.swift in Sources */,
 				C204C41421300B67008C0EAC /* TextFieldExt.swift in Sources */,
 				C2FB91A82153D23C000A6EC0 /* ForecastEngine.swift in Sources */,
 				C2FB91AE2154E49B000A6EC0 /* PriceCalculationEngine.swift in Sources */,
 				C2A10B69213021D1005E6777 /* LoginVC.swift in Sources */,
 				C2B84D862021D3F800ACEF13 /* AppDelegate.swift in Sources */,
+				C21C92D32181CC8D00E6CF5F /* Fuels.swift in Sources */,
 				C29EC03A217F14C4000A238E /* UIColorExt.swift in Sources */,
 				C21CAD492134086800144979 /* WelcomeVC.swift in Sources */,
 				C21D2D992069188B00772B66 /* SettingsTableVC.swift in Sources */,
 				C2FB91BA21551818000A6EC0 /* Constants.swift in Sources */,
 				C21CAD5621354AC200144979 /* ForecastReportVC.swift in Sources */,
 				C21CAD442134043C00144979 /* PageNavigationController.swift in Sources */,
+				C21BFEC72181EE6C00008BAE /* Forecast+CoreDataProperties.swift in Sources */,
 				C2DB1C0121354ED0008CA6FC /* DateConverter.swift in Sources */,
 				C210D02721302DD300C73F4C /* MenuVC.swift in Sources */,
 				C204C41221300B4F008C0EAC /* StringExt.swift in Sources */,
+				C21BFEC82181EE6C00008BAE /* CountModel+CoreDataProperties.swift in Sources */,
 				C21CAD5221354A7B00144979 /* CountVC.swift in Sources */,
 				C21CAD47213404B600144979 /* StoryboardExt.swift in Sources */,
-				C2FB919F2153A59F000A6EC0 /* ForecastModel.swift in Sources */,
+				C2FB919F2153A59F000A6EC0 /* StatisticsModel.swift in Sources */,
 				C29EC045217F48FC000A238E /* CoreDataManager.swift in Sources */,
 				C29EC03F217F4751000A238E /* DataModel.xcdatamodeld in Sources */,
 				C209DDE92136A94000246DF6 /* AZSTypesPopover.swift in Sources */,
-				C2B6871920345F50000D5CAB /* PriceCalculationModel.swift in Sources */,
 				C21CAD402134029500144979 /* MasterVC.swift in Sources */,
 				C21CAD4D21340DF100144979 /* ForecastVC.swift in Sources */,
 				C2FB919D2153A255000A6EC0 /* DataManager.swift in Sources */,
 				C2FB91B6215508FB000A6EC0 /* User.swift in Sources */,
+				C21BFEC92181EE6C00008BAE /* CountModel+CoreDataClass.swift in Sources */,
+				C21C92892180D0EC00E6CF5F /* CalculationModel+CoreDataClass.swift in Sources */,
 				C21CAD5421354AAA00144979 /* CountSaveVC.swift in Sources */,
+				C21BFECA2181EE6C00008BAE /* Forecast+CoreDataClass.swift in Sources */,
 				C21CAD3C2133FCE300144979 /* PageForMenuDelegate.swift in Sources */,
+				C21C92882180D0EC00E6CF5F /* CalculationModel+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

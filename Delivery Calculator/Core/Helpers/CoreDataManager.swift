@@ -8,63 +8,49 @@
 
 import CoreData
 
-public struct CoreDataManager {
+public class CoreDataManager {
 	
-	init() {
-		
-		let modelUrl = Bundle.main.url(forResource: "DataModel", withExtension: "momd")
-		managedObjectModel = NSManagedObjectModel(contentsOf: modelUrl!)!
-		
-		let docsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
-		let storeUrl = docsUrl?.appendingPathComponent("base.sqlite")
-		persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-		
-		do {
-			try persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeUrl!, options: nil)
-		} catch {
-			print(error.localizedDescription)
-			abort()
-		}
-		
-		
-		managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-		managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
-	}
+	static let shared: CoreDataManager = CoreDataManager()
+	private init() { }
 	
-	private var persistentStoreCoordinator: NSPersistentStoreCoordinator
-	private var managedObjectContext: NSManagedObjectContext
-	private var managedObjectModel: NSManagedObjectModel
+	public lazy var context: NSManagedObjectContext = {
+		return persistentContainer.viewContext
+	}()
 	
-	public func save(_ model: PriceCalculationModel) {
-		let dataModel = NSEntityDescription.insertNewObject(forEntityName: "CalculationModel", into: managedObjectContext)
-		dataModel.setValuesForKeys(["id" : model.id,
-									"exchangeRate" : model.exchangeRate,
-									"petrolDuty" : model.petrolDuty,
-									"dieselDuty" : model.dieselDuty,
-									"ecologicalRate" : model.ecologicalRate,
-									"vat" : model.vat,
-									"railwayRate" : model.railwayRate,
-									"autoRate" : model.autoRate,
-									"elnurRate" : model.elnurRate,
-									"density80" : model.density80,
-									"density92" : model.density92,
-									"density95" : model.density95,
-									"densityDT" : model.densityDT])
-		do {
-			try managedObjectContext.save()
-		} catch {
-			print(error.localizedDescription)
+	private lazy var persistentContainer: NSPersistentContainer = {
+		let container = NSPersistentContainer(name: "DataModel")
+		container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+			if let error = error as NSError? {
+				// Replace this implementation with code to handle the error appropriately.
+				// fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+				
+				/*
+				Typical reasons for an error here include:
+				* The parent directory does not exist, cannot be created, or disallows writing.
+				* The persistent store is not accessible, due to permissions or data protection when the device is locked.
+				* The device is out of space.
+				* The store could not be migrated to the current model version.
+				Check the error message to determine what the actual problem was.
+				*/
+				fatalError("Unresolved error \(error), \(error.userInfo)")
+			}
+		})
+		return container
+	}()
+	
+	public func saveContext () {
+		let context = persistentContainer.viewContext
+		if context.hasChanges {
+			do {
+				try context.save()
+			} catch {
+				let nserror = error as NSError
+				fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+			}
 		}
 	}
 	
-	public func get() {
-		let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CalculationModel")
-		request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
-		do {
-			let model = try managedObjectContext.execute(request)
-		} catch {
-			print(error.localizedDescription)
-		}
+	public func entityForName(entityName: String) -> NSEntityDescription {
+		return NSEntityDescription.entity(forEntityName: entityName, in: context)!
 	}
-	
 }

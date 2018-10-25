@@ -13,6 +13,9 @@ struct User {
 	// Переделать на получение юзера с API
 	let firstName: String = "Тигран"
 	let lastName: String = "Хачатурян"
-	let fullName: String = "Тигран Хачатурян"
 	let avatar: String = "avatar"
+	
+	public func getFullName() -> String {
+		return "\(firstName) \(lastName)"
+	}
 }

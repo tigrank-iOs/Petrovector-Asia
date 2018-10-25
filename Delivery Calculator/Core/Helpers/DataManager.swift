@@ -11,9 +11,11 @@ import Foundation
 class DataManager {
 
 	static var shared = DataManager()
-	private init() { }
+	private init() {
+		self.loadData()
+	}
 
-	var modelsArray: [ForecastModel] = []
+	var modelsArray: [StatisticsModel] = []
 
 	func loadData() {
 		let optUrl = Bundle.main.url(forResource: "data", withExtension: "json")
@@ -30,7 +32,7 @@ class DataManager {
 				return
 			}
 			for json in jsonArray {
-				let model = ForecastModel(json)
+				let model = StatisticsModel(json)
 				self.modelsArray.append(model)
 			}
 

@@ -16,10 +16,10 @@ public class NetworkManager {
 	// MARK: - Variables
 	private let userDefaults = UserDefaults.standard
 	private var errorMessage: String = ""
-	public typealias ModelLoadResult = (PriceCalculationModel?, String) -> Void
+	public typealias RateLoadResult = (Double?, String) -> Void
 
 	// MARK: Functions
-	public func loadExchangeRate(completion: @escaping ModelLoadResult) {
+	public func loadExchangeRate(completion: @escaping RateLoadResult) {
 		errorMessage = ""
 		let optUrl = URL(string: Constants.API.exchangeRateURL)
 		let session = URLSession(configuration: .default)
@@ -38,29 +38,14 @@ public class NetworkManager {
 			let xml = XML.parse(data)
 			let rate = xml["CurrencyRates", "Currency", 0, "Value"].text
 			let optDoubleRate = rate?.doubleValue
-
+			
 			if let doubleRate = optDoubleRate {
-				let model = PriceCalculationModel(exchangeRate: doubleRate)
-				CoreDataManager().save(model)
-				completion(model, strongSelf.errorMessage)
+				completion(doubleRate, strongSelf.errorMessage)
 			} else {
-				strongSelf.errorMessage += "Can`t load exchange rate\n"
-				if strongSelf.checkSavedValues() {
-					completion(PriceCalculationModel(storage: strongSelf.userDefaults), strongSelf.errorMessage)
-				} else {
-					strongSelf.errorMessage += "Can`t receive exchange rate"
-					completion(nil, strongSelf.errorMessage)
-				}
+				strongSelf.errorMessage += "Can`t receive exchange rate"
+				completion(nil, strongSelf.errorMessage)
 			}
 		}
-			dataTask.resume()
-	}
-
-	private func checkSavedValues() -> Bool {
-		if userDefaults.value(forKey: "rate") == nil {
-			return false
-		} else {
-			return true
-		}
+		dataTask.resume()
 	}
 }
