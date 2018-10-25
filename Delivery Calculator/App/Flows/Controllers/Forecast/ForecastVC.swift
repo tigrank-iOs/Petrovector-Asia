@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ForecastVC: PageVC {
 
@@ -21,6 +22,18 @@ class ForecastVC: PageVC {
         super.viewDidLoad()
 		tableView.delegate = self
 		tableView.dataSource = self
+		
+		let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CountModel")
+		request.sortDescriptors = [NSSortDescriptor(key: "timeStart", ascending: false)]
+		request.returnsObjectsAsFaults = false
+		
+		do {
+			let results = try CoreDataManager.shared.context.fetch(request) as! [CountModel]
+			countModelArray.append(contentsOf: results)
+			self.tableView.reloadData()
+		} catch {
+			print(error.localizedDescription)
+		}
     }
 
 	// MARK: - Navigation

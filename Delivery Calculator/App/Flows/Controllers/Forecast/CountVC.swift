@@ -117,13 +117,14 @@ class CountVC: UIViewController {
 				showEmptyNameAlert()
 				return
 			}
-			countModel = CountModel(name: name,
-									month: DateConverter().getMonth(Date()),
-									day: DateConverter().getDayOfWeek(Date()),
-									start: start,
-									stop: stop,
-									passed: mainCount,
-									enter: additionalCount)
+			countModel = CountModel()
+			countModel?.setValue(name, forKey: "name")
+			countModel?.setValue(DateConverter().getMonth(Date()), forKey: "month")
+			countModel?.setValue(DateConverter().getDayOfWeek(Date()), forKey: "dayOfWeek")
+			countModel?.setValue(start, forKey: "timeStart")
+			countModel?.setValue(stop, forKey: "timeStop")
+			countModel?.setValue(mainCount, forKey: "passedCars")
+			countModel?.setValue(additionalCount, forKey: "enterCars")
 
 			performSegue(withIdentifier: "saveCount", sender: self)
 		}

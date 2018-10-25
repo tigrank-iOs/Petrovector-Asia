@@ -10,30 +10,30 @@ import Foundation
 
 struct ForecastEngine {
 
-	func makeForecast(for model: CountModel) -> ([String: Double], Double) {
-		var result: [String: Double] = [:]
+	func makeForecast(for model: CountModel) -> [AnyHashable : Double] {
+		var result: [AnyHashable : Double] = [:]
 
 		let forecastModels = DataManager.shared.modelsArray
 
 		let month = model.month
-		let day = model.dayOfWeek
+		let day = model.dayOfWeek!
 		let hour = Int(DateConverter().getHoursMinutes(Date(timeIntervalSince1970: model.timeStart)).split(separator: ":").first!)!
 
 		let multiplicator = 60 * 60 / (model.timeStop - model.timeStart)
 		let enteredInHour = multiplicator * Double(model.enterCars)
 		let passedInHour = multiplicator * Double(model.passedCars)
 
-		let requiredModel = getRequiredModel(forMonth: month, day: day, type: model.azsType, from: forecastModels)
+		let requiredModel = getRequiredModel(forMonth: month, day: day, type: StationTypes(rawValue: model.azsType!)!, from: forecastModels)
 
 		var countPerDay = requiredModel.reduce(0) { (result, item) -> Int in
 			return result + item.count
 		}
-		if model.azsType == .city {
+		if StationTypes(rawValue: model.azsType!)! == .city {
 			countPerDay /= 2
 		}
 
 		let hoursProportions: [Int: Double] = getHoursProportions(forModel: requiredModel, with: countPerDay)
-		let fuelProportions: [String: Double] = getFuelProportions(forModel: requiredModel, with: countPerDay)
+		let fuelProportions: [Int: Double] = getFuelProportions(forModel: requiredModel, with: countPerDay)
 
 		let averageCheques = getAverageCheque(forModel: requiredModel)
 
@@ -41,14 +41,16 @@ struct ForecastEngine {
 
 		for fuel in fuelProportions {
 			let count = fuel.value * enteredInDay
-			let cheque = count * averageCheques[fuel.key]!
+			let cheque = Double(Int((count * averageCheques[fuel.key]!) * 100)) / 100
 			result[fuel.key] = cheque
 		}
+		
+		result["conversion"] = Double(Int((enteredInHour / passedInHour) * 100)) / 100
 
-		return (result, enteredInHour / passedInHour)
+		return result
 	}
 
-	fileprivate func getRequiredModel(forMonth month: Int, day: String, type: AzsTypes, from modelsArray: [ForecastModel]) -> [ForecastModel] {
+	fileprivate func getRequiredModel(forMonth month: Int16, day: String, type: StationTypes, from modelsArray: [StatisticsModel]) -> [StatisticsModel] {
 		return modelsArray.filter { (model) -> Bool in
 			if model.month == month && model.day.lowercased() == day.lowercased() && model.azs == type {
 				return true
@@ -57,7 +59,7 @@ struct ForecastEngine {
 		}
 	}
 
-	fileprivate func getHoursProportions(forModel requiredModel: [ForecastModel], with count: Int) -> [Int: Double] {
+	fileprivate func getHoursProportions(forModel requiredModel: [StatisticsModel], with count: Int) -> [Int: Double] {
 		var proportions: [Int: Double] = [:]
 		for model in requiredModel where proportions[model.hour] == nil {
 			let hourly = requiredModel.filter { (item) -> Bool in
@@ -75,8 +77,8 @@ struct ForecastEngine {
 		return proportions
 	}
 
-	fileprivate func getFuelProportions(forModel requiredModel: [ForecastModel], with count: Int) -> [String: Double] {
-		var proportions: [String: Double] = [:]
+	fileprivate func getFuelProportions(forModel requiredModel: [StatisticsModel], with count: Int) -> [Int: Double] {
+		var proportions: [Int: Double] = [:]
 		for model in requiredModel where proportions[model.fuel] == nil {
 			let fuely = requiredModel.filter { (item) -> Bool in
 				if item.fuel == model.fuel {
@@ -93,8 +95,8 @@ struct ForecastEngine {
 		return proportions
 	}
 
-	fileprivate func getAverageCheque(forModel requiredModel: [ForecastModel]) -> [String: Double] {
-		var averageCheques: [String: Double] = [:]
+	fileprivate func getAverageCheque(forModel requiredModel: [StatisticsModel]) -> [Int: Double] {
+		var averageCheques: [Int: Double] = [:]
 		for model in requiredModel where averageCheques[model.fuel] == nil {
 			var count: Double = 0
 			let fuely = requiredModel.filter { (item) -> Bool in

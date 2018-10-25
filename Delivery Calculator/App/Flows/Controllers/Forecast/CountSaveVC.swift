@@ -17,7 +17,7 @@ class CountSaveVC: UIViewController {
 	// MARK: - Variables
 	private let locationManager = CLLocationManager()
 	private let myPointAnnotation = MKPointAnnotation()
-	private var azsType: AzsTypes?
+	private var azsType: StationTypes?
 	var countModel: CountModel!
 	weak var delegate: CountSaveProtocol?
 
@@ -85,8 +85,24 @@ class CountSaveVC: UIViewController {
 			showEmptyTypeAlert()
 			return
 		}
-		countModel.azsType = type
-		countModel.geoposition = location
+		
+		countModel.setValue(type.rawValue, forKey: "azsType")
+		countModel.setValue(Float(location.latitude), forKey: "latitude")
+		countModel.setValue(Float(location.longitude), forKey: "longitude")
+		let results = ForecastEngine().makeForecast(for: countModel)
+		for result in results {
+			if let key = result.key as? Int {
+				let fuel: Fuels = Fuels(rawValue: key)!
+				let forecast = Forecast()
+				forecast.setValue(fuel.rawValue, forKey: "fuel")
+				forecast.setValue(result.value, forKey: "value")
+				forecast.setValue(countModel, forKey: "countModel")
+				countModel.addToForecasts(forecast)
+			} else {
+				countModel.setValue(result.value, forKey: "conversion")
+			}
+		}
+		CoreDataManager.shared.saveContext()
 	}
 	
 	@IBAction func dropDownPressed(_ sender: UIButton) {
@@ -218,7 +234,7 @@ extension CountSaveVC: UIPopoverPresentationControllerDelegate {
 extension CountSaveVC: AZSTypesPopoverDelegate {
 
 	// MARK: - AZSTypesPopoverDelegate
-	func didSelectType(_ type: AzsTypes) {
+	func didSelectType(_ type: StationTypes) {
 		switch type {
 		case .city:
 			azsType = .city

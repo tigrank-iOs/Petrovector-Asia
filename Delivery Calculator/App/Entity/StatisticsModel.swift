@@ -1,5 +1,5 @@
 //
-//  ForecastModel.swift
+//  StatisticsModel.swift
 //  Delivery Calculator
 //
 //  Created by Тигран on 20/09/2018.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-class ForecastModel {
+class StatisticsModel {
 
-	let azs: AzsTypes
+	let azs: StationTypes
 	let month: Int
 	let day: String
 	let hour: Int
-	let fuel: String
+	let fuel: Fuels.RawValue
 	let count: Int
 	let average: Double
 
@@ -23,7 +23,7 @@ class ForecastModel {
 		month = json["Month"] as! Int
 		day = json["Day"] as! String
 		hour = json["Hour"] as! Int
-		fuel = json["Fuel"] as! String
+		fuel = json["Fuel"] as! Int
 		count = json["Count"] as! Int
 		average = json["Average"] as! Double
 	}
