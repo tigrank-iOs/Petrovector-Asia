@@ -53,8 +53,16 @@ class ForecastVC: PageVC {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "showModel" {
 			let reportVC = segue.destination as! ForecastReportVC
-			let indexPath = tableView.indexPathForSelectedRow
-			reportVC.countModel = countModelArray[(indexPath?.row)!]
+			guard let indexPath = tableView.indexPathForSelectedRow else { return }
+			if indexPath.section == 0 {
+				if cityArray?.count != 0 {
+					reportVC.countModel = cityArray?[indexPath.row]
+				} else {
+					reportVC.countModel = highwayArray?[indexPath.row]
+				}
+			} else {
+				reportVC.countModel = highwayArray?[indexPath.row]
+			}
 		}
 	}
 
