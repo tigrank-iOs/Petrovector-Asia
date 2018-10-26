@@ -240,14 +240,14 @@ extension CountSaveVC: AZSTypesPopoverDelegate {
 										   attributes: [.font: UIFont.systemFont(ofSize: 20), .foregroundColor: UIColor.black])
 
 			dropDownMenuButton.setAttributedTitle(title, for: .normal)
-			countModel.setValue(type.rawValue, forKey: "azsType")
 		case .highway:
 			azsType = .highway
 			let title = NSAttributedString(string: "Трасса",
 										   attributes: [.font: UIFont.systemFont(ofSize: 20), .foregroundColor: UIColor.black])
 
 			dropDownMenuButton.setAttributedTitle(title, for: .normal)
-			countModel.setValue(type.rawValue, forKey: "azsType")
 		}
+		countModel.setValue(type.rawValue, forKey: "azsType")
+		dropDownMenuButton.contentHorizontalAlignment = .left
 	}
 }
