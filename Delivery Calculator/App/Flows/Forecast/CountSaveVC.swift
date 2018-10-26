@@ -81,7 +81,7 @@ class CountSaveVC: UIViewController {
 	// MARK: - Actions
 	@IBAction func savePressed(_ sender: UIButton) {
 		let location = myPointAnnotation.coordinate
-		guard let type = azsType else {
+		guard let _ = azsType else {
 			showEmptyTypeAlert()
 			return
 		}
