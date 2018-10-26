@@ -35,6 +35,8 @@
 		C29EC03F217F4751000A238E /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C29EC03D217F4751000A238E /* DataModel.xcdatamodeld */; };
 		C29EC045217F48FC000A238E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EC044217F48FC000A238E /* CoreDataManager.swift */; };
 		C2A10B69213021D1005E6777 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A10B68213021D1005E6777 /* LoginVC.swift */; };
+		C2A628A821832301005F8628 /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A628A721832301005F8628 /* DoubleExt.swift */; };
+		C2A628AA21832310005F8628 /* FormatterExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A628A921832310005F8628 /* FormatterExt.swift */; };
 		C2B84D862021D3F800ACEF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B84D852021D3F800ACEF13 /* AppDelegate.swift */; };
 		C2B84D8B2021D3F800ACEF13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D892021D3F800ACEF13 /* Main.storyboard */; };
 		C2B84D8D2021D3F800ACEF13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B84D8C2021D3F800ACEF13 /* Assets.xcassets */; };
@@ -83,6 +85,8 @@
 		C29EC03E217F4751000A238E /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		C29EC044217F48FC000A238E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C2A10B68213021D1005E6777 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		C2A628A721832301005F8628 /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
+		C2A628A921832310005F8628 /* FormatterExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterExt.swift; sourceTree = "<group>"; };
 		C2B84D822021D3F800ACEF13 /* Delivery Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Delivery Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B84D852021D3F800ACEF13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2B84D8A2021D3F800ACEF13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 				C204C41321300B67008C0EAC /* TextFieldExt.swift */,
 				C21CAD46213404B600144979 /* StoryboardExt.swift */,
 				C29EC039217F14C3000A238E /* UIColorExt.swift */,
+				C2A628A921832310005F8628 /* FormatterExt.swift */,
+				C2A628A721832301005F8628 /* DoubleExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -446,6 +452,7 @@
 				C21BFEC82181EE6C00008BAE /* CountModel+CoreDataProperties.swift in Sources */,
 				C21CAD5221354A7B00144979 /* CountVC.swift in Sources */,
 				C21CAD47213404B600144979 /* StoryboardExt.swift in Sources */,
+				C2A628AA21832310005F8628 /* FormatterExt.swift in Sources */,
 				C2FB919F2153A59F000A6EC0 /* StatisticsModel.swift in Sources */,
 				C29EC045217F48FC000A238E /* CoreDataManager.swift in Sources */,
 				C29EC03F217F4751000A238E /* DataModel.xcdatamodeld in Sources */,
@@ -453,6 +460,7 @@
 				C21CAD402134029500144979 /* MasterVC.swift in Sources */,
 				C21CAD4D21340DF100144979 /* ForecastVC.swift in Sources */,
 				C2FB919D2153A255000A6EC0 /* DataManager.swift in Sources */,
+				C2A628A821832301005F8628 /* DoubleExt.swift in Sources */,
 				C2FB91B6215508FB000A6EC0 /* User.swift in Sources */,
 				C21BFEC92181EE6C00008BAE /* CountModel+CoreDataClass.swift in Sources */,
 				C21C92892180D0EC00E6CF5F /* CalculationModel+CoreDataClass.swift in Sources */,
