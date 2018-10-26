@@ -78,6 +78,7 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
 
 		let label = UILabel()
 		let text = NSAttributedString(string: "МЕНЮ", attributes: [.font: UIFont.boldSystemFont(ofSize: 30)])
+		label.adjustsFontSizeToFitWidth = true
 		label.attributedText = text
 		label.textColor = UIColor().brandBlue
 		label.frame = CGRect(x: 20, y: 5, width: 100, height: 45)

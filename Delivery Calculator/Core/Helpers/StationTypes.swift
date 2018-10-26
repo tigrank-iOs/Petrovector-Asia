@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum StationTypes: String {
+public enum StationTypes: String {
 	case city = "Город"
 	case highway = "Трасса"
 }

@@ -131,19 +131,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C209DDEA2136A94400246DF6 /* Popover */ = {
-			isa = PBXGroup;
-			children = (
-				C209DDE82136A94000246DF6 /* AZSTypesPopover.swift */,
-			);
-			path = Popover;
-			sourceTree = "<group>";
-		};
 		C21C9285218079D700E6CF5F /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				C2FB91B721550C29000A6EC0 /* NetworkManager.swift */,
+				C2FB919C2153A255000A6EC0 /* DataManager.swift */,
+				C2DB1C0021354ED0008CA6FC /* DateConverter.swift */,
 				C2FB91AD2154E49B000A6EC0 /* PriceCalculationEngine.swift */,
 				C2FB91A72153D23C000A6EC0 /* ForecastEngine.swift */,
+				C29EC044217F48FC000A238E /* CoreDataManager.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -151,6 +147,7 @@
 		C21CAD422134041900144979 /* SlideOutMenu */ = {
 			isa = PBXGroup;
 			children = (
+				C210D02621302DD300C73F4C /* MenuVC.swift */,
 				C21CAD3F2134029500144979 /* MasterVC.swift */,
 				C21CAD3B2133FCE300144979 /* PageForMenuDelegate.swift */,
 				C21CAD432134043C00144979 /* PageNavigationController.swift */,
@@ -159,49 +156,11 @@
 			path = SlideOutMenu;
 			sourceTree = "<group>";
 		};
-		C21CAD4A21340D2100144979 /* Calculator */ = {
-			isa = PBXGroup;
-			children = (
-				C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */,
-				C21D2D982069188B00772B66 /* SettingsTableVC.swift */,
-			);
-			path = Calculator;
-			sourceTree = "<group>";
-		};
-		C21CAD4B21340DC600144979 /* Forecast */ = {
-			isa = PBXGroup;
-			children = (
-				C21CAD4C21340DF100144979 /* ForecastVC.swift */,
-				C21CAD5121354A7B00144979 /* CountVC.swift */,
-				C21CAD5321354AAA00144979 /* CountSaveVC.swift */,
-				C21CAD5521354AC200144979 /* ForecastReportVC.swift */,
-			);
-			path = Forecast;
-			sourceTree = "<group>";
-		};
-		C24917AD2057E0160039C232 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				C2A10B68213021D1005E6777 /* LoginVC.swift */,
-				C21CAD482134086800144979 /* WelcomeVC.swift */,
-				C210D02621302DD300C73F4C /* MenuVC.swift */,
-				C21CAD4A21340D2100144979 /* Calculator */,
-				C21CAD4B21340DC600144979 /* Forecast */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		C29EC031217F033A000A238E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				C2FB91B5215508FB000A6EC0 /* User.swift */,
 				C2FB919E2153A59F000A6EC0 /* StatisticsModel.swift */,
-				C21C92872180D0EC00E6CF5F /* CalculationModel+CoreDataClass.swift */,
-				C21C92862180D0EB00E6CF5F /* CalculationModel+CoreDataProperties.swift */,
-				C21BFEC62181EE6C00008BAE /* Forecast+CoreDataClass.swift */,
-				C21BFEC32181EE6C00008BAE /* Forecast+CoreDataProperties.swift */,
-				C21BFEC52181EE6C00008BAE /* CountModel+CoreDataClass.swift */,
-				C21BFEC42181EE6C00008BAE /* CountModel+CoreDataProperties.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -209,9 +168,11 @@
 		C29EC033217F0359000A238E /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				C24917AD2057E0160039C232 /* Controllers */,
-				C21CAD422134041900144979 /* SlideOutMenu */,
-				C209DDEA2136A94400246DF6 /* Popover */,
+				C2B84D892021D3F800ACEF13 /* Main.storyboard */,
+				C2A628A2218301D4005F8628 /* Main */,
+				C2A628A5218303E6005F8628 /* Auth */,
+				C2A628A02183018A005F8628 /* Calculation */,
+				C2A628A12183019C005F8628 /* Forecast */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -220,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				C2B84D912021D3F800ACEF13 /* Info.plist */,
-				C2B84D892021D3F800ACEF13 /* Main.storyboard */,
 			);
 			path = Environments;
 			sourceTree = "<group>";
@@ -232,6 +192,50 @@
 				C2FB91A62153D228000A6EC0 /* Helpers */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		C2A628A02183018A005F8628 /* Calculation */ = {
+			isa = PBXGroup;
+			children = (
+				C2B84D972021D4A700ACEF13 /* CalculatorVC.swift */,
+				C21D2D982069188B00772B66 /* SettingsTableVC.swift */,
+				C21C92872180D0EC00E6CF5F /* CalculationModel+CoreDataClass.swift */,
+				C21C92862180D0EB00E6CF5F /* CalculationModel+CoreDataProperties.swift */,
+			);
+			path = Calculation;
+			sourceTree = "<group>";
+		};
+		C2A628A12183019C005F8628 /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				C209DDE82136A94000246DF6 /* AZSTypesPopover.swift */,
+				C21CAD4C21340DF100144979 /* ForecastVC.swift */,
+				C21CAD5121354A7B00144979 /* CountVC.swift */,
+				C21CAD5321354AAA00144979 /* CountSaveVC.swift */,
+				C21CAD5521354AC200144979 /* ForecastReportVC.swift */,
+				C21BFEC62181EE6C00008BAE /* Forecast+CoreDataClass.swift */,
+				C21BFEC32181EE6C00008BAE /* Forecast+CoreDataProperties.swift */,
+				C21BFEC52181EE6C00008BAE /* CountModel+CoreDataClass.swift */,
+				C21BFEC42181EE6C00008BAE /* CountModel+CoreDataProperties.swift */,
+			);
+			path = Forecast;
+			sourceTree = "<group>";
+		};
+		C2A628A2218301D4005F8628 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C21CAD482134086800144979 /* WelcomeVC.swift */,
+				C21CAD422134041900144979 /* SlideOutMenu */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C2A628A5218303E6005F8628 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C2A10B68213021D1005E6777 /* LoginVC.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		C2B84D792021D3F800ACEF13 = {
@@ -266,11 +270,7 @@
 		C2FB91A62153D228000A6EC0 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C2FB91B721550C29000A6EC0 /* NetworkManager.swift */,
-				C2FB919C2153A255000A6EC0 /* DataManager.swift */,
-				C2DB1C0021354ED0008CA6FC /* DateConverter.swift */,
 				C2FB91B921551818000A6EC0 /* Constants.swift */,
-				C29EC044217F48FC000A238E /* CoreDataManager.swift */,
 				C21C92D22181CC8D00E6CF5F /* Fuels.swift */,
 				C21C92E22181E7D000E6CF5F /* StationTypes.swift */,
 			);
