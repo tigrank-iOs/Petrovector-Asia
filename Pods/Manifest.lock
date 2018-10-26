@@ -1,19 +1,8 @@
 PODS:
-  - Realm (3.11.1):
-    - Realm/Headers (= 3.11.1)
-  - Realm/Headers (3.11.1)
-  - RealmSwift (3.11.1):
-    - Realm (= 3.11.1)
   - SwiftyXMLParser (4.2.0)
 
 DEPENDENCIES:
-  - RealmSwift
   - SwiftyXMLParser (from `https://github.com/yahoojapan/SwiftyXMLParser.git`)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Realm
-    - RealmSwift
 
 EXTERNAL SOURCES:
   SwiftyXMLParser:
@@ -25,10 +14,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/yahoojapan/SwiftyXMLParser.git
 
 SPEC CHECKSUMS:
-  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
-  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
   SwiftyXMLParser: 0942fd979ab5c54658e16628156e9d32e08924c5
 
-PODFILE CHECKSUM: b02ae0900e7e653309166b4a3a436042228b4b85
+PODFILE CHECKSUM: 38be189a382dd0c24031dad2ea768cd3d622be44
 
 COCOAPODS: 1.6.0.beta.2
